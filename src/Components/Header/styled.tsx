@@ -12,16 +12,44 @@ export const Wrapper = styled.div`
 `
 
 export const Notification = styled.div`
-  position: relative;
+  position: absolute;
   width: 100%;
-  height: 35px;
+  height: 15px;
   top: 100%;
   left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${themes.notification_bg};
+  background: linear-gradient(90deg, ${themes.notification_bg} ${props => props.id}%, transparent ${props => props.id}%);
   opacity: .6;
   color: ${themes.notification_text};
-  font-size: 1rem;
+  font-size: .5rem;
+`
+
+export const BurgerMenu = styled.button`
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0;
+  margin: 0;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+  color: ${themes.scroll_thumb};
+  transition: all 250ms ease;
+
+  :hover {
+    cursor: pointer;
+    color: ${themes.scroll_thumb_hovered};
+  }
+
+  :focus {
+    outline: none;
+  }
+
+  @media (min-width: 769px) {
+    display: none;
+  }
 `
