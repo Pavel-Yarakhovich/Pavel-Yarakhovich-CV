@@ -26,7 +26,7 @@ export const TitlePage: React.FC = memo(() => {
   return (
     <Styled.Container>
       <Header notification="Test notification" />
-
+      
       <Styled.FirstScreen>
         <Screensaver />
         <Toolkit setChosenCategory={handleChosenCategory} id="toolkit"/>

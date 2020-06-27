@@ -2,6 +2,7 @@ import React, { memo, useState } from "react";
 import { Navigation } from "../Navigation";
 import { ChooseLang } from "../ChooseLang";
 import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
+import { SideMenu } from "../SideMenu";
 import * as Styled from "./styled";
 
 export const Header: React.FC<{ notification: String }> = memo((props) => {
@@ -13,10 +14,18 @@ export const Header: React.FC<{ notification: String }> = memo((props) => {
     setScrolled(scrolled);
   });
 
+  const [shownSideMenu, setShownSideMenu] = useState(false);
+  const showSideMenu = (e: React.MouseEvent):void => {
+    e.preventDefault();
+    setShownSideMenu(true);
+  };
+  const handleHideMenu: React.MouseEventHandler = (e: React.MouseEvent<HTMLDivElement>) => setShownSideMenu(false);
+
   return (
+    <>
     <Styled.Wrapper>
-      <Styled.BurgerMenu>
-        <MenuRoundedIcon fontSize="large" />
+      <Styled.BurgerMenu onClick={showSideMenu}>
+        <MenuRoundedIcon fontSize="large"onClick={showSideMenu} />
       </Styled.BurgerMenu>
       <Navigation />
       <ChooseLang />
@@ -24,5 +33,10 @@ export const Header: React.FC<{ notification: String }> = memo((props) => {
         {notification}
       </Styled.Notification>
     </Styled.Wrapper>
+    <SideMenu 
+      shownMenu={shownSideMenu}
+      hideMenu={handleHideMenu} 
+    />
+    </>
   );
 });

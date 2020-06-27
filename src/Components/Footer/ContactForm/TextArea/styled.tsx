@@ -9,15 +9,20 @@ export const Input = styled.textarea`
   background: ${themes.main_bg};
   border: 1px solid #eee;
   border-radius: 5px 5px 0 0;
-  min-width: 215px;
-  max-width: 296px;
+  width: 100%;
+  max-width: 320px;
   color: ${themes.sign_up_form_title};
-  opacity: 1;
+  // opacity: 1;
   font-weight: 100;
 
   ::placeholder {
     color: ${themes.sign_up_form_title};
     opacity: 1;
     font-weight: 100;
+  }
+
+  :focus {
+    border: 1px solid ${themes.sign_up_form_title};
+    outline: none;
   }
 `

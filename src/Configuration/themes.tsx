@@ -1,5 +1,5 @@
 export const themes = {
-  main_bg: "rgb(245, 249, 255)",
+  main_bg: "rgb(245, 245, 245)",
   header_bg: "#fff",
   notification_bg: "#000",
   notification_text: "#fff",

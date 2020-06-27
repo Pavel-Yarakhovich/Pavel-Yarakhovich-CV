@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import { Form, Field } from "react-final-form";
 import { TextInput } from "./TextInput";
 import { TextArea } from "./TextArea";
+import { Contacts } from "../Contacts";
 import * as Styled from "./styled";
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -19,6 +20,7 @@ export const ContactForm: React.FC = memo(() => {
   return (
     <Styled.Container>
       <Styled.Title>Feel free to contact me</Styled.Title>
+      <Contacts />
       <Styled.Text>
         Should you have an interesting proposition to me or you would like to
         give me an advice feel free to send me a message which I'll respond for
@@ -35,11 +37,11 @@ export const ContactForm: React.FC = memo(() => {
               rows="6"
             />
             <Styled.EmailWrapper>
-              <Field<string>
+              {/* <Field<string>
                 name="email"
                 component={TextInput}
                 placeholder="Enter Email Adress"
-              />
+              /> */}
               <Styled.Button type="submit">Send</Styled.Button>
             </Styled.EmailWrapper>
           </Styled.Form>
