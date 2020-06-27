@@ -22,6 +22,7 @@ export const Text = styled.p`
   line-height: 20px;
   margin: 15px auto;
   max-width: 320px;
+  padding: 0 10px;
   text-align: center;
 `
 
@@ -44,6 +45,7 @@ export const Policy = styled.div`
 `
 
 export const Form = styled.form`
+  width: 320px;
   display: flex;
   flex-flow: column;
   align-items: stretch;
@@ -52,8 +54,9 @@ export const Form = styled.form`
 
 export const Button = styled.button`
   height: 40px;
+  width: 100%;
   border: none;
-  border-radius: 0 0 5px 0;
+  border-radius: 0 0 5px 5px;
   background: #000;
   padding: 0 22px;
   color: ${themes.notification_text};

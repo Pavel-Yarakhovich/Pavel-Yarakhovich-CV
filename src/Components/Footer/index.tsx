@@ -4,7 +4,7 @@ import * as Styled from "./styled";
 
 export const Footer: React.FC = memo(() => {
   return (
-    <Styled.Container>
+    <Styled.Container id="contacts">
       <ContactForm />
     </Styled.Container>
   );
