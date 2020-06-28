@@ -31,13 +31,16 @@ export const MenuItem = styled.li`
   display: flex;
   align-items: center;
   text-align: center;
+  :hover {
+    cursor: pointer;
+  }
 
-  a {
+  span {
     color: ${themes.scroll_thumb_hovered};
 
-    :visited,
-    :active {
+    :hover {
       color: ${themes.scroll_thumb};
+      cursor: pointer;
     }
   }
 `

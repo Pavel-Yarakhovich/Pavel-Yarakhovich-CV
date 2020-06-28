@@ -21,7 +21,7 @@ export const Container = styled.div`
   overflow-y: auto;
   padding: 10px;
   box-sizing: border-box;
-  background: ${themes.main_bg};
+  background: linear-gradient(90deg, ${themes.main_bg}, ${themes.header_bg});
   display: flex;
   jusify-content: center;
   align-items: center;
@@ -32,6 +32,7 @@ export const Container = styled.div`
 `;
 
 export const Menu = styled.ul`
+  width: 100%;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -40,7 +41,7 @@ export const Menu = styled.ul`
   align-items: center;
   padding: 0 50px;
   box-sizing: border-box;
-`
+`;
 
 export const MenuItem = styled.li`
   height: 100%;
@@ -51,12 +52,12 @@ export const MenuItem = styled.li`
   align-items: center;
   text-align: center;
 
-  a {
+  span {
     color: ${themes.scroll_thumb_hovered};
 
-    :visited,
-    :active {
+    :hover {
       color: ${themes.scroll_thumb};
+      cursor: pointer;
     }
   }
-`
+`;
