@@ -27,6 +27,7 @@ export const Avatar = styled.img`
   object-fit: cover;
   object-position: center;
   margin-right: 1em;
+  flex-shrink: 0;
 `
 
 export const Info = styled.div`
@@ -35,10 +36,13 @@ export const Info = styled.div`
 `
 
 export const Name =  styled.span`
-  font-size: 1.1em;
+  font-size: 1.15em;
   font-weight: 600;
+  letter-spacing: 0.03rem;
 `
 
 export const Bio = styled.p`
   font-size: 1em;
 `
+
+export const Location = styled(Bio)``
