@@ -13,7 +13,7 @@ export const CategoryWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 10px;
+  padding: 0 10px;
   box-sizing: border-box;
   overflow-x: auto;
 

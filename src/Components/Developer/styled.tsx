@@ -17,6 +17,8 @@ export const Content = styled.div`
   }
 
   @media (max-width: 1000px) {
-    margin: 15px;
+    margin: 0;
+    padding: 15px;
+    box-sizing: border-box;
   }
 `

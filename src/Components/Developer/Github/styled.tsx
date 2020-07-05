@@ -4,16 +4,15 @@ export const Wrapper = styled.div`
   width: 33%;
   display: flex;
   padding: .5em;
-  @media (max-width: 1280px) {
+  @media (max-width: 1000px) {
     width: 100%;
-    height: 250px;
+    padding: 0;
   }
 `;
 
 export const Container = styled.div`
   flex-flow: column;
   width: 100%;
-  border: 1px solid brown;
 `
 
 export const SelfDescription = styled.div`
@@ -45,4 +44,6 @@ export const Bio = styled.p`
   font-size: 1em;
 `
 
-export const Location = styled(Bio)``
+export const Location = styled(Bio)`
+  margin-top: 0;
+`

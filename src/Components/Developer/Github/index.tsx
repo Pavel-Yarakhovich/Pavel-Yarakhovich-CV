@@ -4,8 +4,6 @@ import { API } from "../../../Configuration/api";
 import { Repos } from "./Repos";
 import * as Styled from "./styled";
 
-interface IProps {}
-
 interface IUserInfo {
   avatar_url: string;
   name: string;

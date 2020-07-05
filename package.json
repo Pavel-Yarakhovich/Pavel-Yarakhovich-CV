@@ -17,6 +17,7 @@
     "@types/react-transition-group": "^4.4.0",
     "axios": "^0.19.2",
     "final-form": "^4.20.0",
+    "moment": "^2.27.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-final-form": "^6.5.0",

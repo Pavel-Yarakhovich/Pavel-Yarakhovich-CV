@@ -11,11 +11,9 @@ export const ToolCategory: React.FC<IProduct> = memo((props) => {
   const { image, sort, clicked } = props;
   return (
     <Styled.Wrapper onClick={clicked}>
-      <Styled.Container>
-        <Styled.Image src={image} alt="" />
-        <Styled.Sort>{sort}</Styled.Sort>
+      <Styled.Container id={sort}>
+        {sort}
       </Styled.Container>
-      <Styled.Cover id={sort}/>
     </Styled.Wrapper>
   );
 });
