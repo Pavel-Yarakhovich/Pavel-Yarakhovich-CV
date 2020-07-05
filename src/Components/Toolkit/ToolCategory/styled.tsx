@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { themes } from "../../../Configuration/themes";
 
 export const Wrapper = styled.div`
   flex: 1 0 160px;
@@ -6,6 +7,12 @@ export const Wrapper = styled.div`
   padding: 10px;
   box-sizing: border-box;
   position: relative;
+  transition: all 250ms ease;
+
+  :hover {
+    background: linear-gradient(${themes.main_bg}, ${themes.header_bg});
+    cursor: pointer;
+  }
 `
 
 export const Container = styled.div`
@@ -13,17 +20,16 @@ export const Container = styled.div`
   display: flex;
   flex-flow: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   height: 100%;
   border-radius: 4px;
   overflow: hidden;
   box-sizing: border-box;
   border: 1px solid transparent;
-
-  :hover {
-    border-top: 1px solid red;
-    cursor: pointer;
-  }
+  font-size: .9rem;
+  margin: 0;
+  letter-spacing: .02rem;
+  text-align: center;
 `
 
 export const Image = styled.img`
@@ -31,14 +37,6 @@ export const Image = styled.img`
   height: auto;
   object-fit: contain;
   object-position: center-center;
-`
-
-export const Sort = styled.span`
-  position: absolute;
-  bottom: 15px;
-  font-size: .9rem;
-  margin: 0;
-  letter-spacing: .02rem;
 `
 
 export const Cover = styled.div`

@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 export const Notification = styled.div`
   position: absolute;
   width: 100%;
-  height: 15px;
+  height: 6px;
   top: 100%;
   left: 0;
   display: flex;
@@ -23,7 +23,7 @@ export const Notification = styled.div`
   background: linear-gradient(90deg, ${themes.notification_bg} ${props => props.id}%, transparent ${props => props.id}%);
   opacity: .6;
   color: ${themes.notification_text};
-  font-size: .5rem;
+  font-size: .2rem;
 `
 
 export const BurgerMenu = styled.button`

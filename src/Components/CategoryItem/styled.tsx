@@ -5,7 +5,7 @@ export const Container = styled.div`
   position: relative;
   display: flex;
   flex-flow: column;
-  border-bottom: 1px solid ${themes.scroll_thumb};
+  // border-bottom: 1px solid ${themes.scroll_thumb};
 
   :hover {
     cursor: pointer;
@@ -23,9 +23,10 @@ export const Name = styled.h3`
 `
 
 export const Description = styled.div`
+  position: relative;
   font-size: 14px;
   color: ${themes.sign_up_form_text};
-  padding-bottom: 15px;
+  padding-bottom: 45px;
 
   p {
     text-indent: 30px;
@@ -56,7 +57,7 @@ export const ToggleButton = styled.button`
   border: 0;
   background: 0;
   color: ${themes.scroll_thumb};
-  transition: color 25oms ease;
+  transition: color 250ms ease;
 
   :hover {
     cursor: pointer;
@@ -65,7 +66,9 @@ export const ToggleButton = styled.button`
 `
 
 export const LinkToDocs = styled.div`
-  position: relative;
+  position: absolute;
+  right: 0;
+  bottom: 0;
   font-size: 14px;
   display: flex;
   align-items: center;
@@ -84,4 +87,13 @@ export const OuterLinkSign = styled.div`
   right: 10px;
   top: -5px;
   color: ${themes.link};
+`
+
+export const Border = styled.div`
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: ${themes.scroll_thumb};
 `

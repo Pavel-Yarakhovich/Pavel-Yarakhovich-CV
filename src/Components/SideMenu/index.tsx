@@ -8,6 +8,16 @@ interface Props {
 }
 
 export const SideMenu: React.FC<Props> = memo(({ shownMenu, hideMenu }) => {
+  const scrollIntoView = (id: string) => {
+    const el = document.getElementById(id);
+    el && el.scrollIntoView({ block: "center", behavior: "smooth" });
+  };
+
+  const handleLinkClick = (e: React.MouseEvent) => {
+    const { title } = e.target as HTMLSpanElement;
+    scrollIntoView(title);
+  };
+
   return (
     <Transition
       in={shownMenu}
@@ -29,20 +39,20 @@ export const SideMenu: React.FC<Props> = memo(({ shownMenu, hideMenu }) => {
         >
           <Styled.Container>
             <Styled.Menu>
-              <Styled.MenuItem>
-                <a href="#about">About me</a>
+              <Styled.MenuItem onClick={handleLinkClick} title="about">
+                About me
               </Styled.MenuItem>
-              <Styled.MenuItem>
-                <a href="#toolkit">My toolkit</a>
+              <Styled.MenuItem onClick={handleLinkClick} title="toolkit">
+                My toolkit
               </Styled.MenuItem>
-              <Styled.MenuItem>
-                <a href="#developer">Me as a developer</a>
+              <Styled.MenuItem onClick={handleLinkClick} title="developer">
+                Me as a developer
               </Styled.MenuItem>
-              <Styled.MenuItem>
-                <a href="#person">Me as a person</a>
+              <Styled.MenuItem onClick={handleLinkClick} title="person">
+                Me as a person
               </Styled.MenuItem>
-              <Styled.MenuItem>
-                <a href="#contacts">Contacts</a>
+              <Styled.MenuItem onClick={handleLinkClick} title="contacts">
+                Contacts
               </Styled.MenuItem>
             </Styled.Menu>
           </Styled.Container>

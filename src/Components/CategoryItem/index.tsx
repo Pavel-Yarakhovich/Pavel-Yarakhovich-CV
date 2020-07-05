@@ -4,6 +4,7 @@ import AddRoundedIcon from "@material-ui/icons/AddRounded";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
 import OpenInNewRoundedIcon from "@material-ui/icons/OpenInNewRounded";
 import * as Styled from "./styled";
+import { themes } from "../../Configuration/themes";
 
 interface Props {
   name: string;
@@ -51,18 +52,24 @@ export const CategoryItem: React.FC<Props> = memo((props) => {
               }}
             >
               {description}
+              {link && (
+                <Styled.LinkToDocs>
+                  Docs:
+                  <a href={link} target="_blank" rel="noopener noreferrer">
+                    {link}
+                  </a>
+                  <Styled.OuterLinkSign>
+                    <OpenInNewRoundedIcon fontSize="small" />
+                  </Styled.OuterLinkSign>
+                </Styled.LinkToDocs>
+              )}
             </Styled.Description>
-            {link && (
-              <Styled.LinkToDocs>
-                Docs:
-                <a href={link} target="_blank" rel="noopener noreferrer">
-                  {link}
-                </a>
-                <Styled.OuterLinkSign>
-                  <OpenInNewRoundedIcon fontSize="small" />
-                </Styled.OuterLinkSign>
-              </Styled.LinkToDocs>
-            )}
+            <Styled.Border
+              style={{
+                ...defBorder,
+                ...transBorder[state],
+              }}
+            />
           </>
         )}
       </Transition>
@@ -94,14 +101,19 @@ export const CategoryItem: React.FC<Props> = memo((props) => {
 
 const defaultDescription = {
   opacity: 0,
+  transform: "scaleY(0)",
+  transformOrigin: "top",
   transition: "all 500ms ease",
 };
 
 const transitionDescription = {
-  entering: { opacity: 0 },
-  entered: { opacity: 1 },
-  exiting: { opacity: 0 },
-  exited: { opacity: 0 },
+  entering: { opacity: 0, transform: "scaleY(0)" },
+  entered: {
+    opacity: 1,
+    transform: "scaleY(1)",
+  },
+  exiting: { opacity: 0, transform: "scaleY(0)" },
+  exited: { opacity: 0, transform: "scaleY(0)" },
   unmounted: { opacity: 0 },
 };
 
@@ -118,4 +130,18 @@ const transitionLogo = {
   exiting: { transform: "rotate(90deg)", opacity: 0 },
   exited: { transform: "rotate(90deg)", opacity: 0 },
   unmounted: { transform: "rotate(90deg)", opacity: 0 },
+};
+
+const defBorder = {
+  transform: "scaleX(0)",
+  transformOrigin: "left",
+  transition: "all 320ms ease-in",
+};
+
+const transBorder = {
+  entering: {transform: "scaleX(0)",},
+  entered: {transform: "scaleX(1)",},
+  exiting: {transform: "scaleX(0)",},
+  exited: {transform: "scaleX(0)",},
+  unmounted: {},
 };
