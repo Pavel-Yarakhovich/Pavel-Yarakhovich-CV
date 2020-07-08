@@ -31,15 +31,16 @@ export const Github: React.FC = memo(() => {
     setRepos(res.data);
   };
 
-  // const getEvents = async () => {
-  //   const res = await axios.get("https://api.github.com/users/Pavel-Yarakhovich/received_events");
-  // //   setResponse(res.data);
-  //   console.log("events", res.data);
-  // };
+  const getEvents = async () => {
+    const res = await axios.get("https://api.github.com/users/Pavel-Yarakhovich/events/public");
+  //   setResponse(res.data);
+    console.log("events", res.data);
+  };
 
   useEffect(() => {
-    getGithubUserInfo();
-    getRepos();
+    // getGithubUserInfo();
+    // getRepos();
+    // getEvents();
   }, []);
 
   console.log(repos);

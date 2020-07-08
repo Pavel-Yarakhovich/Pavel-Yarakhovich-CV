@@ -6,12 +6,28 @@ export const Wrapper = styled.div`
   padding: .5em;
   @media (max-width: 1280px) {
     width: 100%;
-    height: 250px;
+    // height: 250px;
   }
 `;
 
 export const Container = styled.div`
   width: 100%;
+  display: flex;
   flex-flow: column;
-  border: 1px solid brown;
+`;
+
+export const Experience = styled.div`
+  display: flex;
+  flex-flow: column;
+
+  @media (max-width: 1280px) {
+    flex-flow: row;
+    align-items: center;
+  }
+`
+
+export const Title = styled.span`
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-bottom: 1em;
 `;
