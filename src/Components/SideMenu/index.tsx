@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import { Transition } from "react-transition-group";
+import { GenerateCV } from "../GenerateCV";
 import * as Styled from "./styled";
 
 interface Props {
@@ -54,6 +55,7 @@ export const SideMenu: React.FC<Props> = memo(({ shownMenu, hideMenu }) => {
               <Styled.MenuItem onClick={handleLinkClick} title="contacts">
                 Contacts
               </Styled.MenuItem>
+              <GenerateCV />
             </Styled.Menu>
           </Styled.Container>
         </Styled.Backdrop>

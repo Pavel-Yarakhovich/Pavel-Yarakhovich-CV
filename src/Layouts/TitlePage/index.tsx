@@ -6,6 +6,7 @@ import { Screensaver } from "../../Components/Screensaver";
 import { Person } from "../../Components/Person";
 import { Developer } from "../../Components/Developer";
 import { Footer } from "../../Components/Footer";
+import { GenerateCV } from "../../Components/GenerateCV";
 import * as Styled from "./styled";
 
 export const TitlePage: React.FC = memo(() => {
