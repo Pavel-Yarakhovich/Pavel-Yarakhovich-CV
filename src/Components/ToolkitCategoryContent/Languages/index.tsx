@@ -11,6 +11,7 @@ export const Languages = memo(() => {
         description="Test description"
         logo={JSlogo}
         link="https://learn.javascript.ru"
+        knowledgeQuality={70}
       />
     </Styled.Container>
   );

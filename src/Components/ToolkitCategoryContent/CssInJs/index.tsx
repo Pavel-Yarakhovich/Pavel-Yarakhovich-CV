@@ -11,11 +11,13 @@ export const CssInJs = memo(() => {
         name="Styled-components"
         description="Test description"
         logo={StyledComponentsLogo}
+        knowledgeQuality={90}
       />
       <CategoryItem
         name="Emotion"
         description="Test description"
         logo={EmotionLogo}
+        knowledgeQuality={85}
       />
     </Styled.Container>
   );

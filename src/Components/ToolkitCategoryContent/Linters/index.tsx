@@ -11,11 +11,13 @@ export const Linters = memo(() => {
         name="ESLint"
         description="Test description"
         logo={EslintLogo}
+        knowledgeQuality={40}
       />
       <CategoryItem
         name="Prettier"
         description="Test description"
         logo={PrettierLogo}
+        knowledgeQuality={50}
       />
     </Styled.Container>
   );

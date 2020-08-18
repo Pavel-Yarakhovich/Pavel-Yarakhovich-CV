@@ -6,7 +6,7 @@ import * as Styled from "./styled";
 export const Runtimes = memo(() => {
   return (
     <Styled.Container>
-      <CategoryItem name="Node.js" description="Test description" logo={NodeLogo} />
+      <CategoryItem name="Node.js" description="Test description" logo={NodeLogo} knowledgeQuality={40}/>
     </Styled.Container>
   );
 });

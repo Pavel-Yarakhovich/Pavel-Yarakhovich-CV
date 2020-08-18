@@ -9,6 +9,7 @@ export const QueryLanguages = memo(() => {
         name="Graph QL"
         description="Test description"
         logo={GraphQLLogo}
+        knowledgeQuality={65}
       />
   </Styled.Container>;
 });

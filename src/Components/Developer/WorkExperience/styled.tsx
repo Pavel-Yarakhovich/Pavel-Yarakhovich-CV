@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   padding: .5em;
   @media (max-width: 1280px) {
     width: 100%;
+    margin-bottom: 20px;
     // height: 250px;
   }
 `;
@@ -17,13 +18,14 @@ export const Container = styled.div`
 `;
 
 export const Experience = styled.div`
-  display: flex;
-  flex-flow: column;
+  // display: flex;
+  // flex-flow: column;
+  // overflow-X: auto;
 
-  @media (max-width: 1280px) {
-    flex-flow: row;
-    align-items: center;
-  }
+  // @media (max-width: 1280px) {
+  //   flex-flow: row;
+  //   align-items: center;
+  // }
 `
 
 export const Title = styled.span`

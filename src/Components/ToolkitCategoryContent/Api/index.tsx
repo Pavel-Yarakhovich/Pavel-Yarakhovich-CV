@@ -11,11 +11,13 @@ export const Api = memo(() => {
         name="Google Maps API"
         description="Test description"
         logo={GMapsLogo}
+        knowledgeQuality={35}
       />
       <CategoryItem
         name="Youtube API"
         description="Test description"
         logo={YoutubeLogo}
+        knowledgeQuality={45}
       />
     </Styled.Container>
   );

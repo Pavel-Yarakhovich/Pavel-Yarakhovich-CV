@@ -4,7 +4,7 @@ import { themes } from "../../Configuration/themes";
 export const Container = styled.div`
   position: absolute;
   height: 100%;
-  right: 0;
+  right: 5%;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -18,6 +18,7 @@ export const Container = styled.div`
 
   @media (max-width: 450px) {
     width: 100%;
+    right: 0;
     padding: 10px;
     align-items: center;
     background: rgba(245, 249, 255, .5);

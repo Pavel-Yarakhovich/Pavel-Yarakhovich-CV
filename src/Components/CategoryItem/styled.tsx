@@ -10,7 +10,7 @@ export const Container = styled.div`
   :hover {
     cursor: pointer;
   }
-`
+`;
 
 export const Name = styled.h3`
   font-size: 16px;
@@ -20,7 +20,7 @@ export const Name = styled.h3`
   :hover {
     color: ${themes.button_hover};
   }
-`
+`;
 
 export const Description = styled.div`
   position: relative;
@@ -31,7 +31,7 @@ export const Description = styled.div`
   p {
     text-indent: 30px;
   }
-`
+`;
 
 export const Logo = styled.img`
   width: 30px;
@@ -42,7 +42,7 @@ export const Logo = styled.img`
   left: -40px;
   top: 50%;
   transform: translateY(-50%);
-`
+`;
 
 export const ToggleButton = styled.button`
   position: absolute;
@@ -63,7 +63,7 @@ export const ToggleButton = styled.button`
     cursor: pointer;
     color: ${themes.button_hover};
   }
-`
+`;
 
 export const LinkToDocs = styled.div`
   position: absolute;
@@ -80,14 +80,14 @@ export const LinkToDocs = styled.div`
     margin: 0;
     padding: 0 12px;
   }
-`
+`;
 
 export const OuterLinkSign = styled.div`
   position: absolute;
   right: 10px;
   top: -5px;
   color: ${themes.link};
-`
+`;
 
 export const Border = styled.div`
   position: absolute;
@@ -96,4 +96,16 @@ export const Border = styled.div`
   right: 0;
   height: 1px;
   background: ${themes.scroll_thumb};
-`
+`;
+
+export const InfoGraphic = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const ChartContainer = styled.div`
+  flex: 100px 0 0;
+  height: 170px;
+  position: relative;
+`;

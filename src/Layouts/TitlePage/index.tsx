@@ -35,7 +35,7 @@ export const TitlePage: React.FC = memo(() => {
 
       <ToolkitCategoryContent chosenCategory={chosenCategory} />
       <Developer />
-      <Person />
+      {/* <Person /> */}
       <Footer />
     </Styled.Container>
   );

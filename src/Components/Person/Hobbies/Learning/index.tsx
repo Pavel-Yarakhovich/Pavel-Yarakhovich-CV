@@ -4,7 +4,7 @@ import * as Styled from "./styled";
 export const Learning = memo(() => {
   return (
     <Styled.Wrapper>
-      <Styled.Container></Styled.Container>
+      <Styled.Container>Learning</Styled.Container>
     </Styled.Wrapper>
   );
 });

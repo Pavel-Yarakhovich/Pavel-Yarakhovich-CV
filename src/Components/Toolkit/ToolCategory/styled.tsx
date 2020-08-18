@@ -8,10 +8,13 @@ export const Wrapper = styled.div`
   box-sizing: border-box;
   position: relative;
   transition: all 250ms ease;
+  font-weight: 400;
+  transition: all 250ms ease;
 
   :hover {
-    background: linear-gradient(${themes.main_bg}, ${themes.header_bg});
+    background: linear-gradient(${themes.header_bg}, ${themes.main_bg});
     cursor: pointer;
+    font-weight: 600;
   }
 `
 
@@ -30,6 +33,8 @@ export const Container = styled.div`
   margin: 0;
   letter-spacing: .02rem;
   text-align: center;
+  background: url(${props => props.image}) no-repeat center;
+  background-size: contain;
 `
 
 export const Image = styled.img`

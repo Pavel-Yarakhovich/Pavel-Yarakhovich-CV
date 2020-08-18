@@ -10,6 +10,7 @@ export const VersionControl = memo(() => {
         name="GIT"
         description="Test description"
         logo={GitLogo}
+        knowledgeQuality={70}
       />
     </Styled.Container>
   );

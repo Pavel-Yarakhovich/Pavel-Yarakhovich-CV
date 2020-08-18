@@ -13,15 +13,15 @@ import * as Styled from "./styled";
 
 export const Libraries = memo(() => {
   return <Styled.Container>
-    <CategoryItem name="React JS" description="Test description" logo={ReactLogo}/>
-    <CategoryItem name="React-router" description="Test description" logo={RouterLogo}/>
-    <CategoryItem name="Redux" description="Test description" logo={ReduxLogo}/>
-    <CategoryItem name="React-transition-group" description="Test description" />
-    <CategoryItem name="Apollo" description="Test description" logo={ApolloLogo}/>
-    <CategoryItem name="Moment JS" description="Test description" logo={MomentLogo}/>
-    <CategoryItem name="React i18n" description="Test description" logo={I18nLogo}/>
-    <CategoryItem name="Express" description="Test description" logo={ExpressLogo}/>
-    <CategoryItem name="Axios" description="Test description" logo={AxiosLogo}/>
-    <CategoryItem name="Vis.js" description="Test description" logo={VisLogo}/>
+    <CategoryItem name="React JS" description="Test description" logo={ReactLogo} knowledgeQuality={85}/>
+    <CategoryItem name="React-router" description="Test description" logo={RouterLogo} knowledgeQuality={90}/>
+    <CategoryItem name="Redux" description="Test description" logo={ReduxLogo} knowledgeQuality={80}/>
+    <CategoryItem name="React-transition-group" description="Test description"  knowledgeQuality={95}/>
+    <CategoryItem name="Apollo" description="Test description" logo={ApolloLogo} knowledgeQuality={45}/>
+    <CategoryItem name="Moment JS" description="Test description" logo={MomentLogo} knowledgeQuality={70}/>
+    <CategoryItem name="React i18n" description="Test description" logo={I18nLogo} knowledgeQuality={75}/>
+    <CategoryItem name="Express" description="Test description" logo={ExpressLogo} knowledgeQuality={30}/>
+    <CategoryItem name="Axios" description="Test description" logo={AxiosLogo} knowledgeQuality={80}/>
+    <CategoryItem name="Vis.js" description="Test description" logo={VisLogo} knowledgeQuality={45}/>
   </Styled.Container>;
 });
