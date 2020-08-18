@@ -31,13 +31,13 @@ export const Repos: React.FC<{ repos: IRepo[] | undefined }> = memo(
       const defaultSelectedRepo: IRepo | undefined =
       repos && repos.find((repo) => repo.name === repos[0].name);
       setSelectedRepo(defaultSelectedRepo);
-    }, []);
+    }, [repos]);
 
     return (
       <Styled.Container>
         <Styled.Title>Repositories</Styled.Title>
         <Select
-          styles={Styled.customStyles}
+          // styles={Styled.customStyles}
           defaultInputValue={selectedRepo && selectedRepo.name}
           options={options}
           onChange={(option) => handleSelectChange((option as IOption).value)}

@@ -11,11 +11,13 @@ export const Preprocessors = memo(() => {
         name="SASS"
         description="Test description"
         logo={SassLogo}
+        knowledgeQuality={80}
       />
       <CategoryItem
         name="LESS"
         description="Test description"
         logo={LessLogo}
+        knowledgeQuality={80}
       />
     </Styled.Container>
   );

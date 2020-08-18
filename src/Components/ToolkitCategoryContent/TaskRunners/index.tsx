@@ -10,6 +10,7 @@ export const TaskRunners = memo(() => {
         name="Gulp"
         description="Test description"
         logo={GulpLogo}
+        knowledgeQuality={50}
       />
     </Styled.Container>
   );

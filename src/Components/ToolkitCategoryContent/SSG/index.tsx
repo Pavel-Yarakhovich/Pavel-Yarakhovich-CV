@@ -10,6 +10,7 @@ export const SSG = memo(() => {
         name="Gatsby"
         description="Test description"
         logo={GatsbyLogo}
+        knowledgeQuality={75}
       />
     </Styled.Container>
   );

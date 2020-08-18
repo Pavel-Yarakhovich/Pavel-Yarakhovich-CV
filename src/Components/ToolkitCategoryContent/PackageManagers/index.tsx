@@ -7,8 +7,8 @@ import * as Styled from "./styled";
 export const PackageManagers = memo(() => {
   return (
     <Styled.Container>
-      <CategoryItem name="npm" description="Test description" logo={NpmLogo} />
-      <CategoryItem name="yarn" description="Test description" logo={YarnLogo} />
+      <CategoryItem name="npm" description="Test description" logo={NpmLogo} knowledgeQuality={85} />
+      <CategoryItem name="yarn" description="Test description" logo={YarnLogo} knowledgeQuality={85} />
     </Styled.Container>
   );
 });

@@ -3,6 +3,8 @@ import { Transition } from "react-transition-group";
 import AddRoundedIcon from "@material-ui/icons/AddRounded";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
 import OpenInNewRoundedIcon from "@material-ui/icons/OpenInNewRounded";
+import { PieChartItem } from "../PieChart";
+import { percentToColor } from "../../utils/percentToColor";
 import * as Styled from "./styled";
 import { themes } from "../../Configuration/themes";
 
@@ -11,10 +13,11 @@ interface Props {
   description: string;
   logo?: string;
   link?: string;
+  knowledgeQuality: number,
 }
 
 export const CategoryItem: React.FC<Props> = memo((props) => {
-  const { name, description, logo, link } = props;
+  const { name, description, logo, link, knowledgeQuality } = props;
   const [expanded, setExpanded] = useState(false);
   const toggleDescription = (e: React.MouseEvent): void => {
     e.preventDefault();
@@ -26,6 +29,19 @@ export const CategoryItem: React.FC<Props> = memo((props) => {
     e.preventDefault();
     setExpanded(true);
   };
+
+  const pieChartData = [
+    {
+      name: "Quality",
+      value: knowledgeQuality,
+      fill: percentToColor(knowledgeQuality),
+    },
+    {
+      name: "",
+      value: 100 - knowledgeQuality,
+      fill: `transparent`,
+    },
+  ];
 
   return (
     <Styled.Container onClick={openDescription}>
@@ -51,7 +67,12 @@ export const CategoryItem: React.FC<Props> = memo((props) => {
                 ...transitionDescription[state],
               }}
             >
-              {description}
+              <Styled.InfoGraphic>
+                <p>{description}</p>
+                <Styled.ChartContainer>
+                  <PieChartItem data={pieChartData} />
+                </Styled.ChartContainer>
+              </Styled.InfoGraphic>
               {link && (
                 <Styled.LinkToDocs>
                   Docs:
@@ -139,9 +160,9 @@ const defBorder = {
 };
 
 const transBorder = {
-  entering: {transform: "scaleX(0)",},
-  entered: {transform: "scaleX(1)",},
-  exiting: {transform: "scaleX(0)",},
-  exited: {transform: "scaleX(0)",},
+  entering: { transform: "scaleX(0)" },
+  entered: { transform: "scaleX(1)" },
+  exiting: { transform: "scaleX(0)" },
+  exited: { transform: "scaleX(0)" },
   unmounted: {},
 };

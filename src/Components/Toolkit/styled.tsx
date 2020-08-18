@@ -4,10 +4,12 @@ import { themes } from "../../Configuration/themes";
 export const Container = styled.div`
   display: flex;
   flex-flow: column;
+  background: ${themes.header_bg};
 `
 
 export const CategoryWrapper = styled.div`
-  height: 170px;
+  height: 20vh;
+  max-height: 100px;
   background: ${themes.header_bg};
   flex-shrink: 0;
   display: flex;

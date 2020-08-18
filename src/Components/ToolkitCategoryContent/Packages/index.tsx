@@ -6,8 +6,8 @@ import * as Styled from "./styled";
 
 export const Packages = memo(() => {
   return <Styled.Container>
-    <CategoryItem name="JSON Web Token" description="Test description" logo={JWTLogo}/>
-    <CategoryItem name="Recharts" description="Test description" />
-    <CategoryItem name="React-virtualized" description="Test description" logo={VirtualizedLogo}/>
+    <CategoryItem name="JSON Web Token" description="Test description" logo={JWTLogo} knowledgeQuality={70}/>
+    <CategoryItem name="Recharts" description="Test description"  knowledgeQuality={75}/>
+    <CategoryItem name="React-virtualized" description="Test description" logo={VirtualizedLogo} knowledgeQuality={65}/>
   </Styled.Container>;
 });

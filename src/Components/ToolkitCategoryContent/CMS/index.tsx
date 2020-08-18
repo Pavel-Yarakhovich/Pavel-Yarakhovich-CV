@@ -11,11 +11,13 @@ export const Cms = memo(() => {
         name="Ghost"
         description="Test description"
         logo={GhostLogo}
+        knowledgeQuality={65}
       />
       <CategoryItem
         name="Contentful"
         description="Test description"
         logo={ContentfulLogo}
+        knowledgeQuality={75}
       />
     </Styled.Container>
   );

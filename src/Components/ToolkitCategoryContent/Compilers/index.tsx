@@ -11,11 +11,13 @@ export const Compilers = memo(() => {
         name="TypeScript"
         description="Test description"
         logo={TSLogo}
+        knowledgeQuality={65}
       />
       <CategoryItem
         name="Babel"
         description="Test description"
         logo={BabelLogo}
+        knowledgeQuality={80}
       />
     </Styled.Container>
   );
