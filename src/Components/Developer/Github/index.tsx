@@ -1,8 +1,19 @@
 import React, { memo, useState, useEffect } from "react";
+import {
+  ResponsiveContainer,
+  BarChart,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Bar,
+} from "recharts";
 import axios from "axios";
+import moment from "moment";
 import { API } from "../../../Configuration/api";
 import { Repos } from "./Repos";
 import * as Styled from "./styled";
+import { themes } from "../../../Configuration/themes";
 
 interface IUserInfo {
   avatar_url: string;
@@ -18,9 +29,22 @@ export interface IRepo {
   created_at: string;
 }
 
+interface IEvent {
+  [key: string]: number;
+}
+
+interface IPreparedEvent {
+  date: string;
+  qty: number;
+}
+
+const getKeyValue = <T extends object, U extends keyof T>(key: U) => (obj: T) =>
+  obj[key];
+
 export const Github: React.FC = memo(() => {
   const [userInfo, setUserInfo] = useState<IUserInfo | undefined>();
   const [repos, setRepos] = useState<IRepo[] | undefined>();
+  const [events, setEvents] = useState<IPreparedEvent[] | undefined>();
 
   const getGithubUserInfo = async () => {
     const res = await axios.get(API.gitHub);
@@ -32,18 +56,45 @@ export const Github: React.FC = memo(() => {
   };
 
   const getEvents = async () => {
-    const res = await axios.get("https://api.github.com/users/Pavel-Yarakhovich/events/public");
-  //   setResponse(res.data);
-    console.log("events", res.data);
+    const res = await axios.get(
+      "https://api.github.com/users/Pavel-Yarakhovich/events" // find out what events it returns
+    );
+    console.log("res: ", res);
+    const preparedEvents = res.data.reduce(
+      (acc: [], curr: { created_at: string }) => {
+        const { created_at } = curr;
+        const formatted = (moment(created_at).format(
+          "DD.MM.YYYY"
+        ) as unknown) as ConcatArray<never>;
+        return acc.concat(formatted);
+      },
+      []
+    );
+    let eventsObj: IEvent = {};
+    preparedEvents.forEach((event: string) => {
+      if (eventsObj[event] !== undefined) {
+        eventsObj = { ...eventsObj, [event]: eventsObj[event] + 1 };
+      } else {
+        eventsObj = { ...eventsObj, [event]: 0 };
+      }
+    });
+    const eventsArr: IPreparedEvent[] = [];
+    Object.entries(eventsObj).map(([date, qty]) => {
+      console.log("[date, qty]", date, qty);
+      return eventsArr.push({
+        date: date,
+        qty: qty,
+      })
+    });
+    console.log("eventsArr", eventsArr);
+    setEvents(eventsArr);
   };
 
   useEffect(() => {
-    // getGithubUserInfo();
-    // getRepos();
-    // getEvents();
+    getGithubUserInfo();
+    getRepos();
+    getEvents();
   }, []);
-
-  console.log(repos);
 
   return (
     <Styled.Wrapper>
@@ -59,6 +110,25 @@ export const Github: React.FC = memo(() => {
               </Styled.Location>
             </Styled.Info>
           </Styled.SelfDescription>
+        )}
+
+        {events && (
+          <Styled.ChartContainer>
+            <ResponsiveContainer>
+              <BarChart
+                width={100}
+                height={100}
+                data={events}
+                layout="horizontal"
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="date" />
+                <YAxis dataKey="qty" />
+                <Tooltip />
+                <Bar dataKey="qty" fill={themes.button_hover} barSize={15} />
+              </BarChart>
+            </ResponsiveContainer>
+          </Styled.ChartContainer>
         )}
 
         <Repos repos={repos} />
