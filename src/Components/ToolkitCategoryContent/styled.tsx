@@ -5,6 +5,15 @@ export const CategoryContentWrapper = styled.div`
   background: ${themes.header_bg};
 `;
 
+export const Wrapper = styled.div`
+  width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+`
+
 export const Content = styled.div`
   margin: 30px 100px;
 

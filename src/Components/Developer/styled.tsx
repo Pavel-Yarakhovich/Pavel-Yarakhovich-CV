@@ -22,3 +22,12 @@ export const Content = styled.div`
     box-sizing: border-box;
   }
 `
+
+export const Wrapper = styled.div`
+  width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+`

@@ -2,40 +2,43 @@ import styled from "@emotion/styled";
 import { themes } from "../../Configuration/themes";
 
 export const Container = styled.div`
-  position: absolute;
-  height: 100%;
-  right: 5%;
-  top: 50%;
-  transform: translateY(-50%);
+  // position: absolute;
+  // height: 100%;
+  // left: 5%;
+  // top: 50%;
+  // transform: translateY(-50%);
   display: flex;
   flex-flow: column;
   align-items: flex-start;
   justify-content: center;
   max-width: 500px;
-  padding-right: 2rem;
+  padding: 2rem;
   box-sizing: border-box;
   overflow: hidden;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     width: 100%;
-    right: 0;
-    padding: 10px;
+    // left: 0;
+    // top: 0;
+    // transform: translateY(5%);
+    justify-content: flex-start;
+    padding: 1rem;
     align-items: center;
-    background: rgba(245, 249, 255, .5);
+    background: rgba(245, 249, 255, 0.5);
   }
-`
+`;
 
 export const Hello = styled.h2`
   font-size: 2rem;
   align-self: center;
   margin-bottom: 4rem;
   text-transform: uppercase;
-`
+`;
 
 export const Name = styled.span`
   font-size: 2rem;
   font-weight: 600;
-  letter-spacing: .06rem;
+  letter-spacing: 0.06rem;
 
   span {
     font-weight: 400;
@@ -45,7 +48,7 @@ export const Name = styled.span`
   span:first-child {
     top: -12px;
   }
-`
+`;
 
 export const Job = styled.p`
   font-size: 1.5rem;
@@ -55,4 +58,4 @@ export const Job = styled.p`
   padding: 1rem 0;
   margin-bottom: 0;
   text-align: center;
-`
+`;

@@ -1,3 +1,7 @@
+html {
+  font-size: 16px;
+}
+
 body {
   margin: 0;
   background-color: rgb(245, 249, 255);
@@ -7,4 +11,10 @@ body {
 
 a {
   text-decoration: none;
+}
+
+@media (max-width: 1020px) {
+  html {
+    font-size: 14px;
+  }
 }
