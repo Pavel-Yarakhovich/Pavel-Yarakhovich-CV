@@ -28,6 +28,7 @@ export const ToolkitCategoryContent: React.FC<Props> = memo((props) => {
   const { chosenCategory } = props;
   return (
     <Styled.CategoryContentWrapper>
+      <Styled.Wrapper>
         <Styled.Content>
           {chosenCategory === "languages" && <Languages />}
           {chosenCategory === "frameworks" && <Frameworks />}
@@ -48,6 +49,7 @@ export const ToolkitCategoryContent: React.FC<Props> = memo((props) => {
           {chosenCategory === "API" && <Api />}
           {chosenCategory === "packages" && <Packages />}
         </Styled.Content>
-      </Styled.CategoryContentWrapper>
+      </Styled.Wrapper>
+    </Styled.CategoryContentWrapper>
   );
 });

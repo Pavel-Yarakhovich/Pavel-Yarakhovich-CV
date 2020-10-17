@@ -108,4 +108,5 @@ export const ChartContainer = styled.div`
   flex: 100px 0 0;
   height: 170px;
   position: relative;
+  opacity: .5;
 `;

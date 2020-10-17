@@ -8,7 +8,8 @@ export const Wrapper = styled.div`
   box-sizing: border-box;
   position: relative;
   transition: all 250ms ease;
-  font-weight: 400;
+  font-weight: ${props => props.active ? 600 : 400};
+  color: ${props => props.active ? '#c98506' : 'inherit'};
   transition: all 250ms ease;
 
   :hover {

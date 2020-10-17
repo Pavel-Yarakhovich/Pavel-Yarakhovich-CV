@@ -23,16 +23,19 @@ export const Header: React.FC<{ notification: String }> = memo((props) => {
 
   return (
     <>
-    <Styled.Wrapper>
-      <Styled.BurgerMenu onClick={showSideMenu}>
-        <MenuRoundedIcon fontSize="large"onClick={showSideMenu} />
-      </Styled.BurgerMenu>
-      <Navigation />
-      <ChooseLang />
-      <Styled.Notification id={String(scrolled)}>
-        {notification}
-      </Styled.Notification>
-    </Styled.Wrapper>
+    <Styled.Header>
+      <Styled.Logo src='/img/logo.svg' alt='' />
+      <Styled.Wrapper>
+        <Styled.BurgerMenu onClick={showSideMenu}>
+          <MenuRoundedIcon fontSize="large"onClick={showSideMenu} />
+        </Styled.BurgerMenu>
+        <Navigation />
+        <ChooseLang />
+        {/* <Styled.Notification id={String(scrolled)}>
+          {notification}
+        </Styled.Notification> */}
+      </Styled.Wrapper>
+    </Styled.Header>
     <SideMenu 
       shownMenu={shownSideMenu}
       hideMenu={handleHideMenu} 

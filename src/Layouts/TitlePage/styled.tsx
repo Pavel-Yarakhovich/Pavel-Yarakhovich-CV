@@ -8,8 +8,13 @@ export const Container = styled.div`
 `
 
 export const FirstScreen = styled.div`
-  width: 100%;
-  height: 100vh;
+  width: 1200px;
+  min-height: 75vh;
   display: flex;
   flex-flow: column;
+  margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
 `
