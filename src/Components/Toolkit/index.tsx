@@ -29,7 +29,9 @@ export const Toolkit: React.FC<Props> = memo(({ setChosenCategory, id }) => {
   };
   return (
     <Styled.Container id={id}>
-      <BlockHeader header="My toolkit" />
+      <Styled.Wrapper>
+        <BlockHeader header="My toolkit" />
+      </Styled.Wrapper>
       <Styled.CategoryWrapper>
         <ToolCategory
           clicked={categoryClickHandler}

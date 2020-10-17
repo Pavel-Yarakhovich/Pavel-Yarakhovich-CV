@@ -8,12 +8,14 @@ import * as Styled from "./styled";
 export const Developer: React.FC = memo(() => {
   return (
     <Styled.Container id="developer">
-      <BlockHeader header="Me as a developer" />
-      <Styled.Content>
-        <WorkExperience />
-        <Courses />
-        <Github />
-      </Styled.Content>
+      <Styled.Wrapper>
+        <BlockHeader header="Me as a developer" />
+        <Styled.Content>
+          <WorkExperience />
+          {/* <Courses /> */}
+          <Github />
+        </Styled.Content>
+      </Styled.Wrapper>
     </Styled.Container>
   );
 });

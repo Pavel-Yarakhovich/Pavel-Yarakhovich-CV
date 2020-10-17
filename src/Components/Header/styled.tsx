@@ -2,13 +2,18 @@ import styled from "@emotion/styled";
 import { themes } from "../../Configuration/themes";
 
 export const Wrapper = styled.div`
-  width: 100%;
+  width: 1200px;
   height: 75px;
   position: fixed;
   z-index: 100;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   background: ${themes.header_bg};
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
 `
 
 export const Notification = styled.div`

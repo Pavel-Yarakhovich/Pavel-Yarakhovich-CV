@@ -1,6 +1,14 @@
 import React, { memo, useEffect, useState } from "react";
 import { Transition } from "react-transition-group";
 import * as Styled from "./styled";
+import ForestSvg from "../../Assets/img/forest.svg";
+import styles from "./AboutMe.module.css";
+
+declare module "react" {
+  interface HTMLAttributes<T> {
+    className?: string;
+  }
+}
 
 export const AboutMe = memo(() => {
   const [isIn, setIn] = useState(false);
@@ -32,7 +40,7 @@ export const AboutMe = memo(() => {
             <Styled.Name
               style={{
                 ...defName,
-                ...transName[state]
+                ...transName[state],
               }}
             >
               Pavel <span>Yarakhovich.</span>
@@ -40,7 +48,7 @@ export const AboutMe = memo(() => {
             <Styled.Job
               style={{
                 ...defJob,
-                ...transJob[state]
+                ...transJob[state],
               }}
             >
               Frontend Web Developer for Omertex LTD, Minsk, Belarus
@@ -58,11 +66,20 @@ const defName = {
   transition: "all 300ms ease-out",
 };
 const transName = {
-  entering: { opacity: 0, transform: "scale(1.4) translateY(-50px) translateX(150px)" },
+  entering: {
+    opacity: 0,
+    transform: "scale(1.4) translateY(-50px) translateX(150px)",
+  },
   entered: { opacity: 1, transform: "scale(1) translateY(0) translateX(0)" },
-  exiting: { opacity: 0, transform: "scale(1.2) translateY(-50px) translateX(150px)" },
-  exited: { opacity: 0, transform: "scale(1.2) translateY(-50px) translateX(150px)" },
-  unmounted: {}
+  exiting: {
+    opacity: 0,
+    transform: "scale(1.2) translateY(-50px) translateX(150px)",
+  },
+  exited: {
+    opacity: 0,
+    transform: "scale(1.2) translateY(-50px) translateX(150px)",
+  },
+  unmounted: {},
 };
 const defJob = {
   opacity: 0,
@@ -74,5 +91,5 @@ const transJob = {
   entered: { opacity: 1, transform: "translateY(0) translateX(-0)" },
   exiting: { opacity: 0, transform: "translateY(60px) translateX(-60px)" },
   exited: { opacity: 0, transform: "translateY(60px) translateX(-60px)" },
-  unmounted: {}
-}
+  unmounted: {},
+};
