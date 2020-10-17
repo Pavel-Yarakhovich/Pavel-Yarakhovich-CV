@@ -25,9 +25,9 @@ export const Menu = styled.ul`
 
 export const MenuItem = styled.li`
   height: 100%;
-  padding: 0 1.5em;
+  padding: 0 1.5rem;
   margin: 0;
-  font-size: 1em;
+  font-size: 1rem;
   display: flex;
   align-items: center;
   text-align: center;
