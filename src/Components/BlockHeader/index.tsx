@@ -6,7 +6,9 @@ export const BlockHeader = memo(({ header }: { header: string }) => {
 });
 
 const Header = styled.h2`
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  padding: 20px 40px;
+  padding: 1rem;
+  width: 100%;
+  margin-top: 0;
 `;

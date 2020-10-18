@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { themes } from '../../Configuration/themes';
 
 export const Container = styled.div`
   // flex-basis: 50%;
@@ -58,6 +59,7 @@ export const Self = styled.img`
 `;
 
 export const ButtonLeftTop = styled.div`
+  position: relative;
   margin: 5px;
   width: calc(50% - 10px);
   height: calc(50% - 10px);
@@ -78,7 +80,23 @@ export const ButtonLeftTop = styled.div`
   }
 `;
 
+export const LTIcon = styled.button`
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  border: none;
+  background: url('/img/toolkit.svg') no-repeat center;
+  background-color: ${themes.header_bg};
+  background-size: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 12px ${themes.scroll_thumb};
+`;
+
 export const ButtonLeftBottom = styled.div`
+  position: relative;
   margin: 5px;
   width: calc(50% - 10px);
   height: calc(50% - 10px);
@@ -99,7 +117,23 @@ export const ButtonLeftBottom = styled.div`
   }
 `;
 
+export const LBIcon = styled.button`
+  position: absolute;
+  z-index: 10;
+  top: bottom;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  border: none;
+  background: url('/img/github.svg') no-repeat center;
+  background-color: ${themes.header_bg};
+  background-size: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 12px ${themes.scroll_thumb};
+`;
+
 export const ButtonRightTop = styled.div`
+  position: relative;
   margin: 5px;
   width: calc(50% - 10px);
   height: calc(50% - 10px);
@@ -121,7 +155,23 @@ export const ButtonRightTop = styled.div`
   }
 `;
 
+export const RTIcon = styled.button`
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  border: none;
+  background: url('/img/work-experience.svg') no-repeat center;
+  background-color: ${themes.header_bg};
+  background-size: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 12px ${themes.scroll_thumb};
+`;
+
 export const ButtonRightBottom = styled.div`
+  position: relative;
   margin: 5px;
   width: calc(50% - 10px);
   height: calc(50% - 10px);
@@ -141,4 +191,26 @@ export const ButtonRightBottom = styled.div`
     cursor: pointer;
     opacity: 1;
   }
+`;
+
+export const RBIcon = styled.button`
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  border: none;
+  background: url('/img/learning.svg') no-repeat center;
+  background-color: ${themes.header_bg};
+  background-size: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 12px ${themes.scroll_thumb};
+`;
+
+export const InfoContainer = styled.div`
+  width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
 `;
