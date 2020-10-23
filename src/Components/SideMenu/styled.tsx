@@ -21,10 +21,10 @@ export const Container = styled.div`
   overflow-y: auto;
   padding: 10px;
   box-sizing: border-box;
-  background: linear-gradient(90deg, ${themes.main_bg}, ${themes.header_bg});
+  background: linear-gradient(160deg,rgb(222,242,252),#fff);
   display: flex;
+  flex-direction: column;
   jusify-content: center;
-  align-items: center;
 
   @media (max-width: 350px) {
     width: 100%;
@@ -33,6 +33,7 @@ export const Container = styled.div`
 
 export const Menu = styled.ul`
   width: 100%;
+  flex-shrink: 1;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -44,7 +45,7 @@ export const Menu = styled.ul`
 `;
 
 export const MenuItem = styled.li`
-  height: 100%;
+  // height: 100%;
   padding: 1.5em;
   margin: 0;
   font-size: 1em;

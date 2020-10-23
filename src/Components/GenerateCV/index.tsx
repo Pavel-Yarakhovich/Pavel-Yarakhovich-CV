@@ -4,55 +4,72 @@ import { pdfjs, Document as PDFDocument, Page as PDFPage } from "react-pdf";
 import { Transition } from "react-transition-group";
 import { Doc } from "./CV";
 import * as Styled from "./styled";
-import { Hidden } from "@material-ui/core";
+import { Hidden, StylesProvider } from "@material-ui/core";
+import { NonceProvider } from "react-select";
 
 export const GenerateCV = memo(() => {
   const [url, setUrl] = useState<string | null>("");
   const [previewCV, setPreviewCV] = useState(false);
+  const [isCvShown, setCvShown] = useState(false);
+
+  const handleShowCv = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCvShown(true);
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setPreviewCV(true);
       clearTimeout(timer);
-    }, 1500);
-  })
+    }, 1000);
+  });
   return (
     <Styled.Container>
-      <div>
-        <BlobProvider document={Doc}>
-          {({ blob, url, loading, error }) => {
-            !loading && !error && setUrl(url);
-            return <div>{loading && "CV generation is in process..."}</div>;
-          }}
-        </BlobProvider>
-        {url && (
-          <Styled.DownloadCVButton
-            href={url}
-            download={`Pavel-Yarakhovich-CV.pdf`}
-            onMouseEnter={() => setPreviewCV(true)}
-            onMouseLeave={() => setPreviewCV(false)}
-          >
-            Download PDF
-          </Styled.DownloadCVButton>
-        )}
-      </div>
-      <Transition
-        in={previewCV}
-        timeout={320}
-      >
+      {!isCvShown && (
+        <Styled.PrepareCv>
+          <BlobProvider document={Doc}>
+            {({ blob, url, loading, error }) => {
+              !loading && !error && setUrl(url);
+              return <div>{loading && "CV generation is in process..."}</div>;
+            }}
+          </BlobProvider>
+          {url && previewCV ? (
+            <Styled.ShowCv onClick={handleShowCv}>CV</Styled.ShowCv>
+          ) : (
+            <Styled.Loader src="/img/blue-loading.svg" />
+          )}
+        </Styled.PrepareCv>
+      )}
+
+      <Transition in={previewCV && isCvShown} timeout={320}>
         {(state) => (
           <Styled.CVSmall
             style={{
               ...defaultStyle,
-              ...transitionStyles[state]
+              ...transitionStyles[state],
             }}
           >
+            {url && (
+              <Styled.Preview
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Preview
+              </Styled.Preview>
+            )}
             <PDFDocument
               file={url}
-              // onLoadSuccess={(result) => setNumPages(result.numPages)}
-              loading={<p>Loading...</p>}
+              loading={<p>Generating CV...</p>}
             >
               <PDFPage renderMode="svg" pageNumber={1} width={200} />
             </PDFDocument>
+            {url && (
+              <Styled.Download href={url} download={`Pavel-Yarakhovich-CV.pdf`}>
+                Download
+              </Styled.Download>
+            )}
           </Styled.CVSmall>
         )}
       </Transition>
@@ -62,14 +79,14 @@ export const GenerateCV = memo(() => {
 
 const defaultStyle = {
   transform: "scaleY(1)",
-  transformOrigin: "top",
   overflow: "hidden",
   transition: "all 320ms ease",
+  display: "none",
 };
 const transitionStyles = {
-  entering: { transform: "scaleY(0)" },
-  entered: { transform: "scaleY(1) translateX(-50%)" },
-  exiting: { transform: "scaleY(0)" },
-  exited: { transform: "scaleY(0)" },
+  entering: { transform: "scaleY(0)", display: "flex" },
+  entered: { transform: "scaleY(1)", display: "flex" },
+  exiting: { transform: "scaleY(0)", display: "none" },
+  exited: { transform: "scaleY(0)", display: "none" },
   unmounted: {},
-}
+};
