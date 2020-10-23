@@ -32,10 +32,10 @@ export const TitlePage: React.FC = memo(() => {
         <Screensaver />
         
       </Styled.FirstScreen>
-      <Toolkit setChosenCategory={handleChosenCategory} id="toolkit"/>
+      {/* <Toolkit setChosenCategory={handleChosenCategory} id="toolkit"/>
 
-      <ToolkitCategoryContent chosenCategory={chosenCategory} />
-      <Developer />
+      <ToolkitCategoryContent chosenCategory={chosenCategory} /> */}
+      {/* <Developer /> */}
       {/* <Person /> */}
       <Footer />
     </Styled.Container>
