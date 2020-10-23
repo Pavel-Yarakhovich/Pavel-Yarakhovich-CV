@@ -37,11 +37,6 @@ export const ContactForm: React.FC = memo(() => {
               rows="6"
             />
             <Styled.EmailWrapper>
-              {/* <Field<string>
-                name="email"
-                component={TextInput}
-                placeholder="Enter Email Adress"
-              /> */}
               <Styled.Button type="submit">Send</Styled.Button>
             </Styled.EmailWrapper>
           </Styled.Form>

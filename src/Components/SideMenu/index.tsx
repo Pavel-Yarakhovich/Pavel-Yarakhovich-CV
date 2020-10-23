@@ -39,6 +39,7 @@ export const SideMenu: React.FC<Props> = memo(({ shownMenu, hideMenu }) => {
           }}
         >
           <Styled.Container>
+            <GenerateCV />
             <Styled.Menu>
               <Styled.MenuItem onClick={handleLinkClick} title="about">
                 About me
@@ -55,7 +56,6 @@ export const SideMenu: React.FC<Props> = memo(({ shownMenu, hideMenu }) => {
               <Styled.MenuItem onClick={handleLinkClick} title="contacts">
                 Contacts
               </Styled.MenuItem>
-              <GenerateCV />
             </Styled.Menu>
           </Styled.Container>
         </Styled.Backdrop>
