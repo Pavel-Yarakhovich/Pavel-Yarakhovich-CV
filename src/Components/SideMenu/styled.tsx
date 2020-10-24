@@ -7,7 +7,7 @@ export const Backdrop = styled.div`
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background: rgba(0, 0, 0, 0.3);
 `;
 
@@ -16,8 +16,8 @@ export const Container = styled.div`
   top: 0;
   left: 0;
   width: 350px;
-  height: 100vh;
-  max-height: 100vh;
+  height: 100%;
+  max-height: 100%;
   overflow-y: auto;
   padding: 10px;
   box-sizing: border-box;
