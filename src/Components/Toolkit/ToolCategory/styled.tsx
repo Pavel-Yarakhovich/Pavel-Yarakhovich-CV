@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { themes } from "../../../Configuration/themes";
 
 export const Wrapper = styled.div`
-  flex: 1 0 160px;
+  flex: 1 0 ${props => props.active ? '160px' : '110px'};
   height: 100%;
   padding: 10px;
   box-sizing: border-box;
@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   transition: all 250ms ease;
 
   :hover {
-    background: linear-gradient(${themes.header_bg}, ${themes.main_bg});
+    box-shadow: inset 0 2px 0 ${themes.button_hover};
     cursor: pointer;
     font-weight: 600;
   }

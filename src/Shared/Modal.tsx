@@ -60,7 +60,7 @@ const Container = styled.div`
   background: ${themes.header_bg};
   border-radius: 6px;
   box-shadow: 0 0 20px ${themes.scroll_thumb};
-  padding: 1.5rem;
+  padding: 0 1.5rem 1.5rem;
   box-sizing: border-box;
 
   @media (max-width: 1200px) {

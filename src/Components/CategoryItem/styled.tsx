@@ -5,7 +5,6 @@ export const Container = styled.div`
   position: relative;
   display: flex;
   flex-flow: column;
-  // border-bottom: 1px solid ${themes.scroll_thumb};
 
   :hover {
     cursor: pointer;
@@ -29,7 +28,15 @@ export const Description = styled.div`
   padding-bottom: 45px;
 
   p {
-    text-indent: 30px;
+    text-align: justify;
+    padding: 0 20px;
+    margin: 0;
+  }
+
+  @media (max-width: 735px) {
+    p {
+      display: none;
+    }
   }
 `;
 
@@ -42,6 +49,10 @@ export const Logo = styled.img`
   left: -40px;
   top: 50%;
   transform: translateY(-50%);
+
+  @media (max-width: 735px) {
+    left: 0;
+  }
 `;
 
 export const ToggleButton = styled.button`
@@ -52,7 +63,7 @@ export const ToggleButton = styled.button`
   align-items: center;
   justify-content: center;
   right: 0;
-  top: 20px;
+  top: 10px;
   padding: 0;
   border: 0;
   background: 0;
@@ -62,6 +73,10 @@ export const ToggleButton = styled.button`
   :hover {
     cursor: pointer;
     color: ${themes.button_hover};
+  }
+
+  :focus {
+    outline: none;
   }
 `;
 
@@ -79,6 +94,7 @@ export const LinkToDocs = styled.div`
     color: ${themes.link};
     margin: 0;
     padding: 0 12px;
+    word-break: break-all;
   }
 `;
 
@@ -102,6 +118,10 @@ export const InfoGraphic = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 735px) {
+    padding-left: 60px;
+  }
 `;
 
 export const ChartContainer = styled.div`
