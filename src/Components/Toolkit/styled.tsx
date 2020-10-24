@@ -17,7 +17,8 @@ export const Wrapper = styled.div`
 `
 
 export const CategoryWrapper = styled.div`
-  height: 20vh;
+  height: 15vh;
+  min-height: 70px;
   max-height: 100px;
   background: ${themes.header_bg};
   flex-shrink: 0;
@@ -33,12 +34,12 @@ export const CategoryWrapper = styled.div`
 
   ::-webkit-scrollbar {
     width: 8px;
-    height: 8px;
+    height: 6px;
     background-color: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: ${themes.scroll_thumb};
+    background-color: rgba(156, 156, 156, .25);
     border-radius: 3px;
 
   ::-webkit-scrollbar-thumb:hover {

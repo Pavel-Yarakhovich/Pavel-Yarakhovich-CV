@@ -9,6 +9,6 @@ const Header = styled.h2`
   font-size: 1.2rem;
   font-weight: 600;
   padding: 1rem;
-  width: 100%;
+  // width: 100%;
   margin-top: 0;
 `;

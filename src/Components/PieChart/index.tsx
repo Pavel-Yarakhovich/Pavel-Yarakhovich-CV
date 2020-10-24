@@ -1,6 +1,5 @@
 import React from "react";
 import { ResponsiveContainer, PieChart, Pie, Legend, Tooltip } from "recharts";
-import styled from "@emotion/styled";
 
 interface PieChartItemProps {
   data: ReadonlyArray<object>;
@@ -19,7 +18,7 @@ export const PieChartItem = ({
   noLegend,
 }: PieChartItemProps) => {
   return (
-    <ResponsiveContainer width="99.8%" height="99.8%" debounce={5}>
+    <ResponsiveContainer width="99.8%" height="88%" debounce={5}>
       <PieChart width={100} height={100}>
         <Pie
           data={data}

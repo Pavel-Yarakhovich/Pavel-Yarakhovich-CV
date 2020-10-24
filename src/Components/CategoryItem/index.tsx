@@ -6,7 +6,6 @@ import OpenInNewRoundedIcon from "@material-ui/icons/OpenInNewRounded";
 import { PieChartItem } from "../PieChart";
 import { percentToColor } from "../../utils/percentToColor";
 import * as Styled from "./styled";
-import { themes } from "../../Configuration/themes";
 
 interface Props {
   name: string;
@@ -46,7 +45,7 @@ export const CategoryItem: React.FC<Props> = memo((props) => {
   return (
     <Styled.Container onClick={openDescription}>
       <Styled.Name>{name}</Styled.Name>
-      <Styled.ToggleButton onClick={toggleDescription}>
+      <Styled.ToggleButton onClick={toggleDescription} >
         {expanded ? <CloseRoundedIcon /> : <AddRoundedIcon />}
       </Styled.ToggleButton>
       <Transition
@@ -100,7 +99,7 @@ export const CategoryItem: React.FC<Props> = memo((props) => {
           timeout={{
             appear: 0,
             enter: 0,
-            exit: 320,
+            exit: 120,
           }}
           mountOnEnter
           unmountOnExit
@@ -124,7 +123,7 @@ const defaultDescription = {
   opacity: 0,
   transform: "scaleY(0)",
   transformOrigin: "top",
-  transition: "all 500ms ease",
+  transition: "all 250ms ease",
 };
 
 const transitionDescription = {
@@ -142,7 +141,7 @@ const defaultLogo = {
   transform: "rotate(90deg)",
   opacity: 0,
   transformOrigin: "top right",
-  transition: "all 320ms ease-in",
+  transition: "all 250ms ease-in",
 };
 
 const transitionLogo = {
@@ -156,7 +155,7 @@ const transitionLogo = {
 const defBorder = {
   transform: "scaleX(0)",
   transformOrigin: "left",
-  transition: "all 320ms ease-in",
+  transition: "all 250ms ease-in",
 };
 
 const transBorder = {
