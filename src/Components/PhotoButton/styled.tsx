@@ -59,10 +59,12 @@ export const Self = styled.img`
 `;
 
 export const ButtonLeftTop = styled.div`
-  position: relative;
-  margin: 5px;
-  width: calc(50% - 10px);
-  height: calc(50% - 10px);
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: calc(50% - 5px);
+  height: calc(50% - 5px);
   background: url('/img/leftTop.svg') no-repeat center;
   background-size: contain;
   opacity: .3;
@@ -91,15 +93,25 @@ export const LTIcon = styled.button`
   background: url('/img/toolkit.svg') no-repeat center;
   background-color: ${themes.header_bg};
   background-size: cover;
-  border-radius: 50%;
-  box-shadow: 0 0 12px ${themes.scroll_thumb};
+  border-radius: 50% 50% 0 50%;
+  box-shadow: 0 0 25px ${themes.scroll_thumb};
+
+  :hover {
+    cursor: pointer;
+  }
+
+  :focus {
+    outline: none;
+  }
 `;
 
 export const ButtonLeftBottom = styled.div`
-  position: relative;
-  margin: 5px;
-  width: calc(50% - 10px);
-  height: calc(50% - 10px);
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  bottom: 0;
+  width: calc(50% - 5px);
+  height: calc(50% - 5px);
   background: url('/img/leftBottom.svg') no-repeat center;
   background-size: contain;
   opacity: .3;
@@ -128,15 +140,25 @@ export const LBIcon = styled.button`
   background: url('/img/github.svg') no-repeat center;
   background-color: ${themes.header_bg};
   background-size: cover;
-  border-radius: 50%;
-  box-shadow: 0 0 12px ${themes.scroll_thumb};
+  border-radius: 50% 0 50% 50%;
+  box-shadow: 0 0 25px ${themes.scroll_thumb};
+
+  :hover {
+    cursor: pointer;
+  }
+
+  :focus {
+    outline: none;
+  }
 `;
 
 export const ButtonRightTop = styled.div`
-  position: relative;
-  margin: 5px;
-  width: calc(50% - 10px);
-  height: calc(50% - 10px);
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  width: calc(50% - 5px);
+  height: calc(50% - 5px);
   background: url('/img/rightTop.svg') no-repeat center;
   background-size: contain;
   opacity: .3;
@@ -166,15 +188,25 @@ export const RTIcon = styled.button`
   background: url('/img/work-experience.svg') no-repeat center;
   background-color: ${themes.header_bg};
   background-size: cover;
-  border-radius: 50%;
-  box-shadow: 0 0 12px ${themes.scroll_thumb};
+  border-radius: 50% 50% 50% 0;
+  box-shadow: 0 0 25px ${themes.scroll_thumb};
+
+  :hover {
+    cursor: pointer;
+  }
+
+  :focus {
+    outline: none;
+  }
 `;
 
 export const ButtonRightBottom = styled.div`
-  position: relative;
-  margin: 5px;
-  width: calc(50% - 10px);
-  height: calc(50% - 10px);
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  width: calc(50% - 5px);
+  height: calc(50% - 5px);
   background: url('/img/rightBottom.svg') no-repeat center;
   background-size: contain;
   opacity: .3;
@@ -204,8 +236,16 @@ export const RBIcon = styled.button`
   background: url('/img/learning.svg') no-repeat center;
   background-color: ${themes.header_bg};
   background-size: cover;
-  border-radius: 50%;
-  box-shadow: 0 0 12px ${themes.scroll_thumb};
+  border-radius: 0 50% 50% 50%;
+  box-shadow: 0 0 25px ${themes.scroll_thumb};
+
+  :hover {
+    cursor: pointer;
+  }
+
+  :focus {
+    outline: none;
+  }
 `;
 
 export const InfoContainer = styled.div`

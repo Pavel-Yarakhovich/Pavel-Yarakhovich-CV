@@ -11,4 +11,6 @@ export const Result = styled.span`
   font-weight: 600;
   justify-self: center;
   text-align: center;
+
+  
 `;

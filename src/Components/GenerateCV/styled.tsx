@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
-import { keyframes } from "@emotion/core";
 import { themes } from "../../Configuration/themes";
 
 export const Container = styled.div`
   position: relative;
   flex-grow: 1;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
