@@ -4,8 +4,6 @@ import { pdfjs, Document as PDFDocument, Page as PDFPage } from "react-pdf";
 import { Transition } from "react-transition-group";
 import { Doc } from "./CV";
 import * as Styled from "./styled";
-import { Hidden, StylesProvider } from "@material-ui/core";
-import { NonceProvider } from "react-select";
 
 export const GenerateCV = memo(() => {
   const [url, setUrl] = useState<string | null>("");
@@ -18,12 +16,19 @@ export const GenerateCV = memo(() => {
     setCvShown(true);
   };
 
+  const handleClosePreview = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCvShown(false);
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setPreviewCV(true);
       clearTimeout(timer);
     }, 1000);
-  });
+  }, []);
+
   return (
     <Styled.Container>
       {!isCvShown && (
@@ -59,6 +64,7 @@ export const GenerateCV = memo(() => {
                 Preview
               </Styled.Preview>
             )}
+            <Styled.Close onClick={handleClosePreview}/>
             <PDFDocument
               file={url}
               loading={<p>Generating CV...</p>}
@@ -79,7 +85,7 @@ export const GenerateCV = memo(() => {
 
 const defaultStyle = {
   transform: "scaleY(1)",
-  overflow: "hidden",
+  // overflow: "hidden",
   transition: "all 320ms ease",
   display: "none",
 };

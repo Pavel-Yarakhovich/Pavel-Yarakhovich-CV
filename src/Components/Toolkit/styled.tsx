@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-flow: column;
   background: ${themes.header_bg};
+  flex-shrink: 0;
 `
 
 export const Wrapper = styled.div`

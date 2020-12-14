@@ -1,12 +1,7 @@
 import styled from "@emotion/styled";
-import { themes } from "../../Configuration/themes";
 
 export const Container = styled.div`
-  // position: absolute;
-  // height: 100%;
-  // left: 5%;
-  // top: 50%;
-  // transform: translateY(-50%);
+  position: relative;
   display: flex;
   flex-flow: column;
   align-items: flex-start;
@@ -14,13 +9,9 @@ export const Container = styled.div`
   max-width: 500px;
   padding: 2rem;
   box-sizing: border-box;
-  overflow: hidden;
 
   @media (max-width: 768px) {
     width: 100%;
-    // left: 0;
-    // top: 0;
-    // transform: translateY(5%);
     justify-content: flex-start;
     padding: 1rem;
     align-items: center;
@@ -58,4 +49,15 @@ export const Job = styled.p`
   padding: 1rem 0;
   margin-bottom: 0;
   text-align: center;
+`;
+
+export const CV = styled.div`
+  position: absolute;
+  bottom: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
