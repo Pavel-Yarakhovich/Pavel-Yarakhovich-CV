@@ -85,8 +85,8 @@ export const ButtonLeftTop = styled.div`
 export const LTIcon = styled.button`
   position: absolute;
   z-index: 10;
-  top: 0;
-  left: 0;
+  // top: 0;
+  // left: 0;
   width: 80px;
   height: 80px;
   border: none;
@@ -132,8 +132,8 @@ export const ButtonLeftBottom = styled.div`
 export const LBIcon = styled.button`
   position: absolute;
   z-index: 10;
-  top: bottom;
-  left: 0;
+  // bottom: 0;
+  // left: 0;
   width: 80px;
   height: 80px;
   border: none;
@@ -180,8 +180,8 @@ export const ButtonRightTop = styled.div`
 export const RTIcon = styled.button`
   position: absolute;
   z-index: 10;
-  top: 0;
-  right: 0;
+  // top: 0;
+  // right: 0;
   width: 80px;
   height: 80px;
   border: none;
@@ -228,8 +228,8 @@ export const ButtonRightBottom = styled.div`
 export const RBIcon = styled.button`
   position: absolute;
   z-index: 10;
-  bottom: 0;
-  right: 0;
+  // bottom: 0;
+  // right: 0;
   width: 80px;
   height: 80px;
   border: none;

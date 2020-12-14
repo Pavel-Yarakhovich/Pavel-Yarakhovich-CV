@@ -112,7 +112,7 @@ export const Github: React.FC = memo(() => {
           </Styled.SelfDescription>
         )}
 
-        {events && (
+        {/* {events && (
           <Styled.ChartContainer>
             <ResponsiveContainer>
               <BarChart
@@ -129,7 +129,7 @@ export const Github: React.FC = memo(() => {
               </BarChart>
             </ResponsiveContainer>
           </Styled.ChartContainer>
-        )}
+        )} */}
 
         <Repos repos={repos} />
       </Styled.Container>

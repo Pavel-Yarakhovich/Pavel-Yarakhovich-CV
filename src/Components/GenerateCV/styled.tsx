@@ -46,6 +46,7 @@ export const DownloadButton = styled.button`
 `;
 
 export const CVSmall = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   box-shadow: 9px 6px 12px rgba(0, 0, 0, 0.2), -3px -3px 16px rgba(0, 0, 0, 0.12),
@@ -66,10 +67,18 @@ export const ShowCv = styled.button`
   font-size: 2rem;
   background: ${themes.main_bg};
   color: ${themes.sign_up_form_text};
-  box-shadow: 0 0 80px 1px #489;
+  box-shadow: 0 0 80px 1px #489, inset 0 0 3px #156;
+  transition: all 250ms ease;
 
   :focus {
     outline: none;
+  }
+
+  :hover {
+    cursor: pointer;
+    box-shadow: 0 0 50px 1px #267;
+    color: #933;
+    font-size: 2.1rem;
   }
 `
 
@@ -117,4 +126,27 @@ export const Download = styled(Preview)`
   border-radius: 0 0 15px 15px;
   background-color: #103d78;
   margin: 4px 0 0;
+`;
+
+export const Close = styled.button`
+  position: absolute;
+  z-index: 12;
+  top: 5px;
+  right: -30px;
+  width: 20px;
+  height: 20px;
+  background: url('/img/cross.svg') no-repeat center;
+  background-size: cover;
+  border: none;
+  opacity: .7;
+  transition: all 250ms ease;
+
+  :focus {
+    outline: none;
+  }
+
+  :hover {
+    cursor: pointer;
+    opacity: 1;
+  }
 `;

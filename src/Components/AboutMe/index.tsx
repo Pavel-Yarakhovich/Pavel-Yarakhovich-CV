@@ -1,8 +1,8 @@
 import React, { memo, useEffect, useState } from "react";
 import { Transition } from "react-transition-group";
+
+import { GenerateCV } from '../GenerateCV';
 import * as Styled from "./styled";
-import ForestSvg from "../../Assets/img/forest.svg";
-import styles from "./AboutMe.module.css";
 
 declare module "react" {
   interface HTMLAttributes<T> {
@@ -33,7 +33,6 @@ export const AboutMe = memo(() => {
 
   return (
     <Styled.Container id="target">
-      {/* <Styled.Hello>Hello, </Styled.Hello> */}
       <Transition in={isIn} timeout={500} mountOnEnter unmountOnExit>
         {(state) => (
           <>
@@ -53,6 +52,9 @@ export const AboutMe = memo(() => {
             >
               Frontend Web Developer for Omertex LTD, Minsk, Belarus
             </Styled.Job>
+            <Styled.CV>
+              <GenerateCV />
+            </Styled.CV>
           </>
         )}
       </Transition>

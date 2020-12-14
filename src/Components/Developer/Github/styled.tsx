@@ -2,11 +2,13 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   width: 100%;
+  max-height: 100%;
+  overflow: auto;
   display: flex;
-  padding: 0.5em;
+  padding: 1.5em 0.5em 0.5em;
   @media (max-width: 1280px) {
     width: 100%;
-    padding: 0;
+    padding: 1.5em 0 0;
   }
 `;
 

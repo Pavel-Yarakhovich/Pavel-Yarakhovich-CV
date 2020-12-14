@@ -19,14 +19,8 @@ export const Container = styled.div`
 `;
 
 export const Experience = styled.div`
-  // display: flex;
-  // flex-flow: column;
-  // overflow-X: auto;
-
-  // @media (max-width: 1280px) {
-  //   flex-flow: row;
-  //   align-items: center;
-  // }
+  flex-grow: 1;
+  overflow: auto;
 `
 
 export const Title = styled.span`
@@ -34,3 +28,8 @@ export const Title = styled.span`
   font-weight: 600;
   margin-bottom: 1em;
 `;
+
+export const Slide = styled.div`
+  // flex-grow: 1;
+  // overflow: auto;
+`
