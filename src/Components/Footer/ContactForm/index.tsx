@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { Form, Field } from "react-final-form";
-import { TextInput } from "./TextInput";
+import { useTranslation } from "react-i18next";
 import { TextArea } from "./TextArea";
 import { Contacts } from "../Contacts";
 import * as Styled from "./styled";
@@ -17,15 +17,12 @@ const onSubmit = async (values: Values) => {
 };
 
 export const ContactForm: React.FC = memo(() => {
+  const { t } = useTranslation();
   return (
     <Styled.Container>
-      <Styled.Title>Feel free to contact me</Styled.Title>
+      <Styled.Title>{t("contact_me")}</Styled.Title>
       <Contacts />
-      <Styled.Text>
-        Should you have an interesting proposition to me or you would like to
-        give me an advice feel free to send me a message which I'll respond for
-        sure
-      </Styled.Text>
+      <Styled.Text>{t("write_me_a_message")}</Styled.Text>
       <Form
         onSubmit={onSubmit}
         render={({ handleSubmit }) => (
@@ -33,22 +30,18 @@ export const ContactForm: React.FC = memo(() => {
             <Field<string>
               name="message"
               component={TextArea}
-              placeholder="Enter Your Message"
+              placeholder={t("enter_your_message")}
               rows="6"
             />
             <Styled.EmailWrapper>
-              <Styled.Button type="submit">Send</Styled.Button>
+              <Styled.Button type="submit">{t("send")}</Styled.Button>
             </Styled.EmailWrapper>
           </Styled.Form>
         )}
       />
 
       <Styled.Policy>
-        <p>
-          I only respond messages I've received. If you ever get a message from
-          me which does not deal with yours previously sent one, please block
-          me.
-        </p>
+        <p>{t("disclaimer")}</p>
       </Styled.Policy>
     </Styled.Container>
   );
