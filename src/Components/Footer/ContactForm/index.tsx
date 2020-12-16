@@ -1,23 +1,50 @@
 import React, { memo } from "react";
 import { Form, Field } from "react-final-form";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
+import { useSnackbar } from "notistack";
+
+import { TextInput } from "./TextInput";
 import { TextArea } from "./TextArea";
 import { Contacts } from "../Contacts";
 import * as Styled from "./styled";
 
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
 interface Values {
   email: string;
+  message: string;
 }
-
-const onSubmit = async (values: Values) => {
-  await sleep(300);
-  window.alert(JSON.stringify(values, undefined, 2));
-};
 
 export const ContactForm: React.FC = memo(() => {
   const { t } = useTranslation();
+  const { enqueueSnackbar } = useSnackbar();
+
+  const onSubmit = async (values: Values) => {
+    if (!values.email || !values.message) {
+      enqueueSnackbar("There is at least one empty field", {
+        variant: "warning",
+      });
+      return;
+    }
+    await axios
+      .post(
+        "https://getform.io/f/d709b72b-d30b-4316-9cc1-4d1d33778a8b",
+        values,
+        { headers: { Accept: "application/json" } }
+      )
+      .then(function (response) {
+        if (response.data.success) {
+          enqueueSnackbar(t("got_message"), {
+            variant: "success",
+          });
+        }
+      })
+      .catch(function (error) {
+        enqueueSnackbar(t("msg_not_delivered"), {
+          variant: "error",
+        });
+      });
+  };
+
   return (
     <Styled.Container>
       <Styled.Title>{t("contact_me")}</Styled.Title>
@@ -25,19 +52,34 @@ export const ContactForm: React.FC = memo(() => {
       <Styled.Text>{t("write_me_a_message")}</Styled.Text>
       <Form
         onSubmit={onSubmit}
-        render={({ handleSubmit }) => (
-          <Styled.Form onSubmit={handleSubmit}>
-            <Field<string>
-              name="message"
-              component={TextArea}
-              placeholder={t("enter_your_message")}
-              rows="6"
-            />
-            <Styled.EmailWrapper>
-              <Styled.Button type="submit">{t("send")}</Styled.Button>
-            </Styled.EmailWrapper>
-          </Styled.Form>
-        )}
+        render={({ handleSubmit, form, submitting, pristine }) => {
+          return (
+            <Styled.Form
+              onSubmit={(event) => {
+                handleSubmit && handleSubmit(event);
+                form.reset();
+              }}
+            >
+              <Field<string>
+                name="email"
+                component={TextInput}
+                placeholder={t("enter_your_email")}
+                rows="6"
+              />
+              <Field<string>
+                name="message"
+                component={TextArea}
+                placeholder={t("enter_your_message")}
+                rows="6"
+              />
+              <Styled.EmailWrapper>
+                <Styled.Button type="submit" disabled={submitting || pristine}>
+                  {t("send")}
+                </Styled.Button>
+              </Styled.EmailWrapper>
+            </Styled.Form>
+          );
+        }}
       />
 
       <Styled.Policy>
