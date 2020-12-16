@@ -1,5 +1,8 @@
 import React, { memo } from "react";
 import { Transition } from "react-transition-group";
+import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
+import ServiceAction from "../../Store/service/serviceAction";
 import { GenerateCV } from "../GenerateCV";
 import * as Styled from "./styled";
 
@@ -8,15 +11,21 @@ interface Props {
   hideMenu: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-export const SideMenu: React.FC<Props> = memo(({ shownMenu, hideMenu }) => {
-  const scrollIntoView = (id: string) => {
-    const el = document.getElementById(id);
-    el && el.scrollIntoView({ block: "center", behavior: "smooth" });
-  };
+const links = [
+  { label: "about_me", title: "about" },
+  { label: "my_toolkit", title: "toolkit" },
+  { label: "me_developer", title: "developer" },
+  { label: "me_person", title: "person" },
+  { label: "contacts", title: "contacts" },
+  { label: "CV", title: "cv" },
+];
 
-  const handleLinkClick = (e: React.MouseEvent) => {
-    const { title } = e.target as HTMLSpanElement;
-    scrollIntoView(title);
+export const SideMenu: React.FC<Props> = memo(({ shownMenu, hideMenu }) => {
+  const dispatch = useDispatch();
+  const { t } = useTranslation();
+
+  const handleLinkClick = (content: string) => {
+    dispatch({ type: ServiceAction.OPEN_MODAL, payload: { content } });
   };
 
   return (
@@ -39,23 +48,17 @@ export const SideMenu: React.FC<Props> = memo(({ shownMenu, hideMenu }) => {
           }}
         >
           <Styled.Container>
-            <GenerateCV />
             <Styled.Menu>
-              <Styled.MenuItem onClick={handleLinkClick} title="about">
-                About me
-              </Styled.MenuItem>
-              <Styled.MenuItem onClick={handleLinkClick} title="toolkit">
-                My toolkit
-              </Styled.MenuItem>
-              <Styled.MenuItem onClick={handleLinkClick} title="developer">
-                Me as a developer
-              </Styled.MenuItem>
-              <Styled.MenuItem onClick={handleLinkClick} title="person">
-                Me as a person
-              </Styled.MenuItem>
-              <Styled.MenuItem onClick={handleLinkClick} title="contacts">
-                Contacts
-              </Styled.MenuItem>
+              {links.map((link) => (
+                <Styled.MenuItem
+                  key={link.title}
+                  onClick={() => handleLinkClick(link.title)}
+                  title={link.title}
+                >
+                  {t(link.label)}
+                </Styled.MenuItem>
+              ))}
+              {/* <GenerateCV /> */}
             </Styled.Menu>
           </Styled.Container>
         </Styled.Backdrop>

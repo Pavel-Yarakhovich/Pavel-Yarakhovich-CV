@@ -1,10 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import createSagaMiddleware from "redux-saga";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "./i18n";
 import { SnackbarProvider } from "notistack";
+
+import { reducers } from "./Store/rootReducer";
+import { rootSaga } from "./Store/rootEffect";
+
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(
+  combineReducers(reducers),
+  applyMiddleware(sagaMiddleware)
+);
+
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,7 +30,9 @@ ReactDOM.render(
         horizontal: "right",
       }}
     >
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </SnackbarProvider>
   </React.StrictMode>,
   document.getElementById("root")
