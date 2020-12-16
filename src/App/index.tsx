@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { TitlePage } from "../Layouts/TitlePage";
+import { ModalPortal } from "../Components/ModalPortal/modalPortal";
 
 function App(): ReactElement {
   return (
@@ -8,6 +9,7 @@ function App(): ReactElement {
       <div>
         <TitlePage />
       </div>
+      <ModalPortal />
     </Router>
   );
 }

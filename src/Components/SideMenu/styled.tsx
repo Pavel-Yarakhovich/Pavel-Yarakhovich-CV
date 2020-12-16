@@ -21,10 +21,24 @@ export const Container = styled.div`
   overflow-y: auto;
   padding: 10px;
   box-sizing: border-box;
-  background: linear-gradient(160deg,rgb(222,242,252),#fff);
+  background: linear-gradient(160deg, rgb(200, 200, 215), #fff);
   display: flex;
   flex-direction: column;
-  jusify-content: center;
+  justify-content: center;
+
+  :before {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    content: "";
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    border: 4px solid ${themes.header_bg};
+    border-radius: 6px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
   @media (max-width: 350px) {
     width: 100%;
@@ -32,8 +46,10 @@ export const Container = styled.div`
 `;
 
 export const Menu = styled.ul`
+  position: relative;
+  z-index: 2;
   width: 100%;
-  flex-shrink: 1;
+  flex-shrink: 0;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -45,20 +61,19 @@ export const Menu = styled.ul`
 `;
 
 export const MenuItem = styled.li`
-  // height: 100%;
   padding: 1.5em;
   margin: 0;
   font-size: 1em;
   display: flex;
   align-items: center;
   text-align: center;
+  transition: all 250ms ease;
 
-  span {
-    color: ${themes.scroll_thumb_hovered};
-
-    :hover {
-      color: ${themes.scroll_thumb};
-      cursor: pointer;
-    }
+  :hover {
+    font-weight: 700;
+    color: ${themes.notification_bg};
+    cursor: pointer;
+    transform: rotateY(25deg);
+    letter-spacing: .03rem;
   }
 `;
