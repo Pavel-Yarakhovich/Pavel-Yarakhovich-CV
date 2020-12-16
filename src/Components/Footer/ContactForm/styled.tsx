@@ -45,11 +45,15 @@ export const Policy = styled.div`
 `
 
 export const Form = styled.form`
-  width: 320px;
+  width: 500px;
   display: flex;
   flex-flow: column;
   align-items: stretch;
   color: ${themes.sign_up_form_title};
+
+  @media (max-width: 520px) {
+    width: calc(100% - 20px);
+  }
 `
 
 export const Button = styled.button`

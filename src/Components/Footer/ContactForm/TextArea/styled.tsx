@@ -4,24 +4,21 @@ import { themes } from "../../../../Configuration/themes";
 export const Input = styled.textarea`
   padding: 8px 12px;
   box-sizing: border-box;
-  font-size: 11px;
+  font-size: 13px;
   font-family: inherit;
   background: white;
-  border: 1px solid #eee;
+  border: 1px solid ${themes.sign_up_form_text};
   border-radius: 5px 5px 0 0;
-  width: 100%;
-  max-width: 320px;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 150px;
+  max-height: 150px;
   color: ${themes.sign_up_form_title};
-  font-weight: 100;
+  font-weight: 400;
 
   ::placeholder {
-    color: ${themes.sign_up_form_title};
+    color: ${themes.sign_up_form_text};
     opacity: 1;
-    font-weight: 100;
-  }
-
-  :focus {
-    border: 1px solid ${themes.sign_up_form_title};
-    outline: none;
+    font-weight: 400;
   }
 `
