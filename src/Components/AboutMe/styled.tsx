@@ -36,7 +36,7 @@ export const Name = styled.span`
     letter-spacing: 0;
   }
 
-  span:first-child {
+  span:first-of-type {
     top: -12px;
   }
 `;

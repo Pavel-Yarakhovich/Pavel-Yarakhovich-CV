@@ -196,7 +196,7 @@ export const Doc: React.ReactElement<DocumentProps> = (
           >
             {Object.values(toolkit).map((val) =>
               val.content.map((item) => (
-                <Link src={item.docs} style={styles.tool}>
+                <Link key={item.docs} src={item.docs} style={styles.tool}>
                   {item.title}
                 </Link>
               ))
@@ -216,6 +216,7 @@ export const Doc: React.ReactElement<DocumentProps> = (
         >
           {courses.map((course) => (
             <View
+              key={course.certNumber}
               style={{
                 display: "flex",
                 flexDirection: "row",
@@ -260,6 +261,7 @@ export const Doc: React.ReactElement<DocumentProps> = (
         >
           {books.map((book) => (
             <View
+              key={book.title}
               style={{
                 display: "flex",
                 flexDirection: "row",

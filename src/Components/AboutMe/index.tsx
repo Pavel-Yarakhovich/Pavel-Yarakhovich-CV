@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { memo, useEffect, useState, useRef } from "react";
 import { Transition } from "react-transition-group";
 
 import { GenerateCV } from '../GenerateCV';
@@ -25,18 +25,20 @@ export const AboutMe = memo(() => {
     entry.isIntersecting ? setIn(true) : setIn(false);
   };
   const observer = new IntersectionObserver(callback, options);
-
+  const targetRef = useRef<any>(null);
+  const firstNameRef = useRef<any>(null);
+  const jobRef = useRef<any>(null);
   useEffect(() => {
-    const target = document.getElementById("target");
-    target && observer.observe(target);
-  });
+    targetRef?.current && observer.observe(targetRef.current);
+  }, [targetRef, observer]);
 
   return (
-    <Styled.Container id="target">
+    <Styled.Container ref={targetRef}>
       <Transition in={isIn} timeout={500} mountOnEnter unmountOnExit>
         {(state) => (
           <>
             <Styled.Name
+              ref={firstNameRef}
               style={{
                 ...defName,
                 ...transName[state],
@@ -45,6 +47,7 @@ export const AboutMe = memo(() => {
               Pavel <span>Yarakhovich.</span>
             </Styled.Name>
             <Styled.Job
+              ref={jobRef}
               style={{
                 ...defJob,
                 ...transJob[state],

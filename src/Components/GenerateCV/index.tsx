@@ -9,6 +9,7 @@ import * as Styled from "./styled";
 export const GenerateCV = memo(() => {
   const { t } = useTranslation();
   const [url, setUrl] = useState<string | null>("");
+  const [blob, setBlob] = useState<any>(null);
   const [previewCV, setPreviewCV] = useState(false);
   const [isCvShown, setCvShown] = useState(false);
 
@@ -37,7 +38,10 @@ export const GenerateCV = memo(() => {
         <Styled.PrepareCv>
           <BlobProvider document={Doc}>
             {({ blob, url, loading, error }) => {
-              !loading && !error && setUrl(url);
+              if (!loading && !error) {
+                setUrl(url);
+                setBlob(blob);
+              }
               return <div>{loading && "CV generation is in process..."}</div>;
             }}
           </BlobProvider>
