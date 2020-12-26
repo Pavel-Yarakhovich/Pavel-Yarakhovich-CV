@@ -1,8 +1,7 @@
 import React, { memo } from "react";
 import Slider from "react-slick";
 import { WorkPlace } from "./WorkPlace";
-import Omertex from "../../../Assets/img/omertex.svg";
-import Freelance from "../../../Assets/img/self.svg";
+import { workExperience } from "../../../Store/workExperience";
 
 import * as Styled from "./styled";
 import "slick-carousel/slick/slick.css";
@@ -19,24 +18,20 @@ export const WorkExperience = memo(() => {
     <Styled.Wrapper>
       <Styled.Container>
         <Styled.Title>Work experience</Styled.Title>
-        <Styled.Experience>
+        <div>
           <Slider {...settings}>
-            <WorkPlace
-              companyLogo={Omertex}
-              companyName="Omertex, Ltd"
-              period="january 2020 - present"
-              position="Frontend developer"
-              duties={["this", "that"]}
-            />
-            <WorkPlace
-              companyLogo={Freelance}
-              companyName="Self-Employed"
-              period="june 2019 - january 2020"
-              position="Frontend developer"
-              duties={["this", "that"]}
-            />
+            {workExperience.map((w: any) => (
+              <WorkPlace
+                key={w.company}
+                companyLogo={w.logo}
+                companyName={w.company}
+                period={`${w.startedAt} - ${w.endedAt ? w.endedAt : 'present'}`}
+                position={w.position}
+                duties={w.duties}
+              />
+            ))}
           </Slider>
-        </Styled.Experience>
+        </div>
       </Styled.Container>
     </Styled.Wrapper>
   );

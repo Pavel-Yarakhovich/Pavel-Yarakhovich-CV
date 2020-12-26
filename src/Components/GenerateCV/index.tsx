@@ -2,10 +2,12 @@ import React, { memo, useState, useEffect } from "react";
 import { BlobProvider } from "@react-pdf/renderer";
 import { pdfjs, Document as PDFDocument, Page as PDFPage } from "react-pdf";
 import { Transition } from "react-transition-group";
+import { useTranslation } from "react-i18next";
 import { Doc } from "./CV";
 import * as Styled from "./styled";
 
 export const GenerateCV = memo(() => {
+  const { t } = useTranslation();
   const [url, setUrl] = useState<string | null>("");
   const [previewCV, setPreviewCV] = useState(false);
   const [isCvShown, setCvShown] = useState(false);
@@ -40,7 +42,7 @@ export const GenerateCV = memo(() => {
             }}
           </BlobProvider>
           {url && previewCV ? (
-            <Styled.ShowCv onClick={handleShowCv}>CV</Styled.ShowCv>
+            <Styled.ShowCv onClick={handleShowCv}>{t("cv")}</Styled.ShowCv>
           ) : (
             <Styled.Loader src="/img/blue-loading.svg" />
           )}
@@ -64,11 +66,8 @@ export const GenerateCV = memo(() => {
                 Preview
               </Styled.Preview>
             )}
-            <Styled.Close onClick={handleClosePreview}/>
-            <PDFDocument
-              file={url}
-              loading={<p>Generating CV...</p>}
-            >
+            <Styled.Close onClick={handleClosePreview} />
+            <PDFDocument file={url} loading={<p>Generating CV...</p>}>
               <PDFPage renderMode="svg" pageNumber={1} width={200} />
             </PDFDocument>
             {url && (
@@ -85,7 +84,6 @@ export const GenerateCV = memo(() => {
 
 const defaultStyle = {
   transform: "scaleY(1)",
-  // overflow: "hidden",
   transition: "all 320ms ease",
   display: "none",
 };

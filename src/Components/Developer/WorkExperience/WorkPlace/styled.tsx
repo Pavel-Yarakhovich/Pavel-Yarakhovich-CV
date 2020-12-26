@@ -39,3 +39,7 @@ export const Period = styled.span`
   font-weight: 100;
   margin-bottom: .3rem;
 `
+
+export const Duty = styled.span`
+  padding-left: 30px;
+`;

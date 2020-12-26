@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from "react";
+import React, { memo, useState, useEffect, useRef } from "react";
 import CreatableSelect from "react-select/creatable";
 import { useTranslation } from "react-i18next";
 import { calcSuitTest } from "./calcSuitTest";
@@ -36,6 +36,8 @@ export const SuitTest = memo(() => {
     setResult(calcSuitTest(selectedOptions, control));
   }, [selectedOptions, control]);
 
+  const selectRef = useRef(null);
+
   const handleChange = (newValue: any, actionMeta: any) => {
     setSelectedOptions(newValue);
   };
@@ -44,6 +46,7 @@ export const SuitTest = memo(() => {
       <p>{t("check_my_stack")}</p>
 
       <CreatableSelect
+        ref={selectRef}
         isMulti
         onChange={handleChange}
         options={options}

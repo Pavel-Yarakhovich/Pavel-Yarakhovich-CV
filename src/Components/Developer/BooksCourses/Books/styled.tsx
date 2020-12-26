@@ -2,13 +2,14 @@ import styled from "@emotion/styled";
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   min-width: 300px;
   box-sizing: border-box;
 
 
-  @media (max-width: 1280px) {
-    // align-items: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 `;
 
@@ -43,6 +44,8 @@ export const Period = styled.span`
 `
 
 export const Book = styled.div`
+  flex-basis: 50%;
   display: flex;
   padding: .5rem;
+  box-sizing: border-box;
 `

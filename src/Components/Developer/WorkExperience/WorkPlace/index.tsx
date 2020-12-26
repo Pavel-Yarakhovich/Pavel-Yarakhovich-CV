@@ -19,7 +19,7 @@ export const WorkPlace: React.FC<IWorkInfo> = memo(
           <Styled.CompanyName>{companyName}</Styled.CompanyName>
           <Styled.Period>{period}</Styled.Period>
           {duties.map((item) => (
-            <span key={item}>{item}</span>
+            <Styled.Duty key={item}>{item}</Styled.Duty>
           ))}
         </Styled.Info>
       </Styled.Container>
