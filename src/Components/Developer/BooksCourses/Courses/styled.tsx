@@ -14,9 +14,10 @@ export const Container = styled.div`
 
 export const Logo = styled.img`
   width: 160px;
+  max-width: 30vw;
   height: 120px;
   object-fit: contain;
-  object-position: center;
+  object-position: center top;
   margin-right: 15px;
   box-shadow: 0 0 15px lightgrey;
 `;

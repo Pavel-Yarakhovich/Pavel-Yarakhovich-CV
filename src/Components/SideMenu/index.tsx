@@ -12,11 +12,10 @@ interface Props {
 }
 
 const links = [
-  { label: "about_me", title: "about" },
   { label: "my_toolkit", title: "toolkit" },
-  { label: "me_developer", title: "developer" },
-  { label: "me_person", title: "person" },
-  { label: "contacts", title: "contacts" },
+  { label: "github", title: "github" },
+  { label: "work_experience", title: "work-experience" },
+  { label: "education", title: "education" },
   { label: "CV", title: "cv" },
 ];
 

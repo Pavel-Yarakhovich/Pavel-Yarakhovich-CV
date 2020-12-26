@@ -1,11 +1,35 @@
 import styled from "@emotion/styled";
+import { themes } from '../../../Configuration/themes';
 
 export const Wrapper = styled.div`
   width: 100%;
-  max-height: 100%;
+  // max-height: 100%;
+  flex-grow: 1;
   overflow: auto;
   display: flex;
   padding: 1.5em 0.5em 0.5em;
+  scrollbar-color: ${themes.scroll_thumb} transparent;
+  scrollbar-width: thin;
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 6px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 156, 156, .25);
+    border-radius: 3px;
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: ${themes.scroll_thumb_hovered};
+    cursor: pointer;
+  }
+
+  :hover {
+    scrollbar-color: ${themes.scroll_thumb_hovered} transparent;
+    cursor: pointer;
+  }
   @media (max-width: 1280px) {
     width: 100%;
     padding: 1.5em 0 0;

@@ -1,36 +1,35 @@
-import React, { memo } from "react";
-import Slider from "react-slick";
+import React, { memo, useState } from "react";
 import { Books } from "./Books";
 import { Courses } from "./Courses";
 import { books } from "../../../Store/books";
 import { courses } from "../../../Store/courses";
 
 import * as Styled from "./styled";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 export const BooksCourses = memo(() => {
-  const settings = {
-    dots: true,
-    arrows: false,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+  const [slideShown, setSlideShown] = useState("books");
+
   return (
     <Styled.Wrapper>
       <Styled.Container>
-        <Styled.Title>Books and courses</Styled.Title>
+        <Styled.Title>
+          <Styled.Toggler
+            onClick={() => setSlideShown("books")}
+            active={slideShown === "books"}
+          >
+            Books
+          </Styled.Toggler>
+          and
+          <Styled.Toggler
+            onClick={() => setSlideShown("courses")}
+            active={slideShown === "courses"}
+          >
+            Courses
+          </Styled.Toggler>
+        </Styled.Title>
         <Styled.Experience>
-          <Slider {...settings}>
-            <Styled.Slide>
-              <span>Books</span>
-              <Books books={books} />
-            </Styled.Slide>
-            <div>
-              <span>Courses</span>
-              <Courses courses={courses} />
-            </div>
-          </Slider>
+          {slideShown === "books" && <Books books={books} />}
+          {slideShown === "courses" && <Courses courses={courses} />}
         </Styled.Experience>
       </Styled.Container>
     </Styled.Wrapper>

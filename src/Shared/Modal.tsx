@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Transition } from "react-transition-group";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
 
@@ -12,6 +12,14 @@ interface ModalProps {
 }
 
 export const Modal = ({ isOpen, children, handleClose }: ModalProps) => {
+  const containerRef = useRef<any>(null);
+
+  const handleBackdropClick = (e: any): void => {
+    if (containerRef.current && !containerRef.current.contains(e.target)) {
+      handleClose();
+    }
+  };
+
   return (
     <Transition
       in={isOpen}
@@ -23,12 +31,13 @@ export const Modal = ({ isOpen, children, handleClose }: ModalProps) => {
     >
       {(state) => (
         <Backdrop
+          onClick={handleBackdropClick}
           style={{
             ...container,
             ...containerTrans[state],
           }}
         >
-          <Container >
+          <Container ref={containerRef}>
             <Close fontSize="large" onClick={handleClose}/>
             {children}
           </Container>
@@ -62,6 +71,8 @@ const Container = styled.div`
   box-shadow: 0 0 20px ${themes.scroll_thumb};
   padding: 0 1.5rem 1.5rem;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 
   @media (max-width: 1200px) {
     width: 90vw;

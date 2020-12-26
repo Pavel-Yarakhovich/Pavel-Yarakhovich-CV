@@ -56,18 +56,18 @@ export const CVSmall = styled.div`
 `;
 
 export const ShowCv = styled.button`
-  width: 80px;
+  min-width: 80px;
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 15px;
-  border-radius: 50%;
+  border-radius: 40px;
   border: none;
   font-size: 2rem;
   background: ${themes.main_bg};
-  color: ${themes.sign_up_form_text};
-  box-shadow: 0 0 80px 1px #489, inset 0 0 3px #156;
+  color: rgba(37, 128, 199, .9);
+  box-shadow: 0 0 80px 1px rgba(57, 148, 219, .3), inset 0 0 3px #3994DB;
   transition: all 250ms ease;
 
   :focus {

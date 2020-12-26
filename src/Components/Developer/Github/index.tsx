@@ -1,19 +1,9 @@
 import React, { memo, useState, useEffect } from "react";
-import {
-  ResponsiveContainer,
-  BarChart,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Bar,
-} from "recharts";
 import axios from "axios";
 import moment from "moment";
 import { API } from "../../../Configuration/api";
 import { Repos } from "./Repos";
 import * as Styled from "./styled";
-import { themes } from "../../../Configuration/themes";
 
 interface IUserInfo {
   avatar_url: string;
@@ -111,26 +101,6 @@ export const Github: React.FC = memo(() => {
             </Styled.Info>
           </Styled.SelfDescription>
         )}
-
-        {/* {events && (
-          <Styled.ChartContainer>
-            <ResponsiveContainer>
-              <BarChart
-                width={100}
-                height={100}
-                data={events}
-                layout="horizontal"
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="date" />
-                <YAxis dataKey="qty" />
-                <Tooltip />
-                <Bar dataKey="qty" fill={themes.button_hover} barSize={15} />
-              </BarChart>
-            </ResponsiveContainer>
-          </Styled.ChartContainer>
-        )} */}
-
         <Repos repos={repos} />
       </Styled.Container>
     </Styled.Wrapper>

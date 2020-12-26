@@ -1,24 +1,17 @@
 import React, { memo, useState, useRef, useEffect } from "react";
 import { Transition } from "react-transition-group";
-
-import { Modal } from "../../Shared/Modal";
-import { Toolkit } from "../Toolkit";
-import { ToolkitCategoryContent } from "../ToolkitCategoryContent";
-import { Github } from "../Developer/Github";
-import { WorkExperience } from "../Developer/WorkExperience";
-import { BooksCourses } from "../Developer/BooksCourses";
+import { useDispatch } from "react-redux";
+import ServiceAction from "../../Store/service/serviceAction";
 import { useObserver } from "../../Hooks/useObserver";
 
 import * as Styled from "./styled";
-import { Preview } from "../GenerateCV/styled";
 
 interface VisibilityProps {
   [key: string ]: boolean;
 }
 
 export const PhotoButton = memo(() => {
-  const [chosenInfo, setChosenInfo] = useState("");
-  const [chosenCategory, setChosenCategory] = useState("languages");
+  const dispatch = useDispatch();
   const [buttonsVisibility, setButtonsVisibility] = useState<VisibilityProps>({
     leftTop: false,
     rightTop: false,
@@ -30,9 +23,8 @@ export const PhotoButton = memo(() => {
     console.log(buttonsVisibility);
   }, [buttonsVisibility]);
 
-  const handleChosenCategory = (id: string) => {
-    setChosenCategory(id);
-    // scrollIntoView("toolkit");
+  const handleInfoLinkClick = (content: string) => {
+    dispatch({ type: ServiceAction.OPEN_MODAL, payload: { content } });
   };
 
   interface VisibilityWrapperProps {
@@ -58,7 +50,7 @@ export const PhotoButton = memo(() => {
     <>
       <Styled.Container>
         <Styled.Buttons>
-          <Styled.ButtonLeftTop onClick={() => setChosenInfo("Toolkit")}>
+          <Styled.ButtonLeftTop onClick={() => handleInfoLinkClick("toolkit")}>
             <VisibilityWrapper
               corner="leftTop"
               ref={useRef<HTMLButtonElement>(null)}
@@ -71,12 +63,11 @@ export const PhotoButton = memo(() => {
                   <Styled.LTIcon style={{ ...LeftTop, ...LeftTopVisible[state] }} />
                 )}
               </Transition>
-              
             </VisibilityWrapper>
           </Styled.ButtonLeftTop>
 
           <Styled.ButtonRightTop
-            onClick={() => setChosenInfo("Work Experience")}
+            onClick={() => handleInfoLinkClick("work-experience")}
           >
             <VisibilityWrapper
               corner="rightTop"
@@ -94,7 +85,7 @@ export const PhotoButton = memo(() => {
             </VisibilityWrapper>
           </Styled.ButtonRightTop>
 
-          <Styled.ButtonLeftBottom onClick={() => setChosenInfo("GitHub")}>
+          <Styled.ButtonLeftBottom onClick={() => handleInfoLinkClick("github")}>
             <VisibilityWrapper
               corner="leftBottom"
               ref={useRef<HTMLButtonElement>(null)}
@@ -110,7 +101,7 @@ export const PhotoButton = memo(() => {
             </VisibilityWrapper>
           </Styled.ButtonLeftBottom>
 
-          <Styled.ButtonRightBottom onClick={() => setChosenInfo("Learning")}>
+          <Styled.ButtonRightBottom onClick={() => handleInfoLinkClick("education")}>
             <VisibilityWrapper
               corner="rightBottom"
               ref={useRef<HTMLButtonElement>(null)}
@@ -131,18 +122,6 @@ export const PhotoButton = memo(() => {
           <Styled.Self src="/img/self.jpeg" alt="" />
         </Styled.Buttons>
       </Styled.Container>
-
-      <Modal isOpen={!!chosenInfo} handleClose={() => setChosenInfo("")}>
-        {chosenInfo === "Toolkit" && (
-          <Styled.InfoContainer>
-            <Toolkit setChosenCategory={handleChosenCategory} id="toolkit" />
-            <ToolkitCategoryContent chosenCategory={chosenCategory} />
-          </Styled.InfoContainer>
-        )}
-        {chosenInfo === "GitHub" && <Github />}
-        {chosenInfo === "Work Experience" && <WorkExperience />}
-        {chosenInfo === "Learning" && <BooksCourses />}
-      </Modal>
     </>
   );
 });

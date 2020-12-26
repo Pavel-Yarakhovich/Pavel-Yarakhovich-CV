@@ -57,7 +57,6 @@ export const ContactForm: React.FC = memo(() => {
             <Styled.Form
               onSubmit={(event) => {
                 handleSubmit && handleSubmit(event);
-                form.reset();
               }}
             >
               <Field<string>

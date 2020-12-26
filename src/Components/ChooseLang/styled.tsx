@@ -22,7 +22,8 @@ export const Flag = styled.img`
   object-position: center;
   margin: .25em;
   opacity: ${props => props.selected ? 1 : 0.6};
-  box-shadow: 0 0 4px ${props => props.selected ? 'blue' : 'lightgrey'};
+  box-shadow: 0 0 5px ${props => props.selected ? 'black' : 'lightgrey'};
+  transform: ${props => props.selected ? 'scale(1.1)' : 'scale(1)'};
   transition: all 250ms ease;
   :hover {
     cursor: pointer;
