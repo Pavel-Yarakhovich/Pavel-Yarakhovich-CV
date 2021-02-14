@@ -22,7 +22,7 @@ export const AboutMe = memo(() => {
     observer: IntersectionObserver
   ): void => {
     const [entry] = entries;
-    entry.isIntersecting ? setIn(true) : setIn(false);
+    setIn(entry.isIntersecting);
   };
   const observer = new IntersectionObserver(callback, options);
   const targetRef = useRef<any>(null);

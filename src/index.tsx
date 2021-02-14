@@ -22,7 +22,7 @@ const store = createStore(
 sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <SnackbarProvider
       maxSnack={3}
       anchorOrigin={{
@@ -33,8 +33,8 @@ ReactDOM.render(
       <Provider store={store}>
         <App />
       </Provider>
-    </SnackbarProvider>
-  </React.StrictMode>,
+    </SnackbarProvider>,
+  // </React.StrictMode>,
   document.getElementById("root")
 );
 
