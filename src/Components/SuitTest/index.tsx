@@ -44,7 +44,6 @@ export const SuitTest = memo(() => {
   return (
     <Styled.Container>
       <p>{t("check_my_stack")}</p>
-
       <CreatableSelect
         ref={selectRef}
         isMulti

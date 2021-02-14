@@ -1,22 +1,26 @@
 import React, { memo, useState, useEffect } from "react";
-import { BlobProvider } from "@react-pdf/renderer";
-import { pdfjs, Document as PDFDocument, Page as PDFPage } from "react-pdf";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import { Document as PDFDocument, Page as PDFPage } from "react-pdf";
 import { Transition } from "react-transition-group";
 import { useTranslation } from "react-i18next";
 import { Doc } from "./CV";
 import * as Styled from "./styled";
 
-export const GenerateCV = memo(() => {
+interface Props {
+  isShown?: boolean;
+}
+
+export const GenerateCV: React.FC<Props> = memo(({ isShown = false }) => {
   const { t } = useTranslation();
   const [url, setUrl] = useState<string | null>("");
-  const [blob, setBlob] = useState<any>(null);
-  const [previewCV, setPreviewCV] = useState(false);
-  const [isCvShown, setCvShown] = useState(false);
+  const [previewCV, setPreviewCV] = useState(isShown);
+  const [isCvShown, setCvShown] = useState(isShown);
 
-  const handleShowCv = (e: React.MouseEvent) => {
+  const handleShowCv = (e: React.MouseEvent, url: any) => {
     e.preventDefault();
     e.stopPropagation();
     setCvShown(true);
+    setUrl(url);
   };
 
   const handleClosePreview = (e: React.MouseEvent) => {
@@ -36,20 +40,17 @@ export const GenerateCV = memo(() => {
     <Styled.Container>
       {!isCvShown && (
         <Styled.PrepareCv>
-          <BlobProvider document={Doc}>
+          <PDFDownloadLink document={<Doc />}>
             {({ blob, url, loading, error }) => {
-              if (!loading && !error) {
-                setUrl(url);
-                setBlob(blob);
+              let content;
+              if (error) content = <div>CV generation error!</div>;
+              if (loading) content = <Styled.Loader src="/img/blue-loading.svg" />;
+              if (url && previewCV) {
+                content = <Styled.ShowCv onClick={(e: any) => handleShowCv(e, url)}>{t("cv")}</Styled.ShowCv>
               }
-              return <div>{loading && "CV generation is in process..."}</div>;
+              return content;
             }}
-          </BlobProvider>
-          {url && previewCV ? (
-            <Styled.ShowCv onClick={handleShowCv}>{t("cv")}</Styled.ShowCv>
-          ) : (
-            <Styled.Loader src="/img/blue-loading.svg" />
-          )}
+          </PDFDownloadLink>
         </Styled.PrepareCv>
       )}
 

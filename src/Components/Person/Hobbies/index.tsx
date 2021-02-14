@@ -8,7 +8,6 @@ import { Learning } from "./Learning";
 import * as Styled from "./styled";
 
 export const Hobbies: React.FC<{ inProp: boolean, id?: string }> = memo(({ inProp, id }) => {
-  useEffect(() => console.log(inProp), [inProp]);
   return (
     <Transition in={inProp} timeout={320}>
       {(state) => (

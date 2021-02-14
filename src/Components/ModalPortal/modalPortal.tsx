@@ -9,6 +9,7 @@ import { ToolkitCategoryContent } from "../ToolkitCategoryContent";
 import { Github } from "../Developer/Github";
 import { WorkExperience } from "../Developer/WorkExperience";
 import { BooksCourses } from "../Developer/BooksCourses";
+import { GenerateCV } from '../GenerateCV';
 
 import * as Styled from "./styled";
 
@@ -84,6 +85,7 @@ export const ModalPortal = () => {
         {chosenContent === "github" && <Github />}
         {chosenContent === "work-experience" && <WorkExperience />}
         {chosenContent === "education" && <BooksCourses />}
+        {chosenContent === "cv" && <GenerateCV />}
       </Modal>,
       element
     )

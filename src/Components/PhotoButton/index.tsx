@@ -19,10 +19,6 @@ export const PhotoButton = memo(() => {
     rightBottom: false,
   });
 
-  useEffect(() => {
-    console.log(buttonsVisibility);
-  }, [buttonsVisibility]);
-
   const handleInfoLinkClick = (content: string) => {
     dispatch({ type: ServiceAction.OPEN_MODAL, payload: { content } });
   };

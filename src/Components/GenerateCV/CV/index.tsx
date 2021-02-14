@@ -93,7 +93,7 @@ const BlockHeader = ({ children }: any) => (
   </View>
 );
 
-export const Doc: React.ReactElement<DocumentProps> = (
+export const Doc = () => (
   <Document>
     <Page size="A4" orientation="portrait" style={{ padding: 20 }}>
       <View
