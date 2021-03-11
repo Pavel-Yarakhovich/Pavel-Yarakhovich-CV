@@ -21,7 +21,7 @@
     "@types/recharts": "^1.8.14",
     "@types/slick-carousel": "^1.6.34",
     "acorn-jsx": "^5.2.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "final-form": "^4.20.0",
     "i18next": "^19.8.4",
     "i18next-browser-languagedetector": "^6.0.1",
